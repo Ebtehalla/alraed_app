@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "678557577625",
+    "project_id": "alraedclub-6d192",
+    "storage_bucket": "alraedclub-6d192.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:678557577625:android:c558eb0ca7c5d5272da308",
+        "android_client_info": {
+          "package_name": "com.example.alradi_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-pDuT-dJkcP3YQLYBRZlO3EUr8GTz5rE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
