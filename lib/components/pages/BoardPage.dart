@@ -158,28 +158,24 @@ class _BoardPageState extends State<BoardPage> {
                 const SizedBox(
                   height: 30,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          bottom:
-                              5.0), // Change the value to adjust the padding size
-                      child: Center(
-                        child: Container(
-                          alignment: Alignment.centerRight,
-                          color: Colors.black,
-                          child: const Text(
-                            'جميع الحقوق محفوظة لنادي الرائد 2023 صمم بواسطة بانوراما القصيم',
-                            style: TextStyle(
-                              color: Colors.green,
-                              fontSize: 18.0,
-                            ),
-                          ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      bottom:
+                          5.0), // Change the value to adjust the padding size
+                  child: Center(
+                    child: Container(
+                      alignment: Alignment.centerRight,
+                      color: Colors.black,
+                      child: const Text(
+                        'جميع الحقوق محفوظة لنادي الرائد 2023 صمم بواسطة بانوراما القصيم',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.green,
+                          fontSize: 18.0,
                         ),
                       ),
                     ),
-                  ],
+                  ),
                 ),
               ],
             ),

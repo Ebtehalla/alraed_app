@@ -67,7 +67,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '678557577625',
     projectId: 'alraedclub-6d192',
     storageBucket: 'alraedclub-6d192.appspot.com',
-    iosBundleId: 'com.example.alradiApp',
+    iosBundleId: 'com.alradiApp.mhmd',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
@@ -76,6 +76,6 @@ class DefaultFirebaseOptions {
     messagingSenderId: '678557577625',
     projectId: 'alraedclub-6d192',
     storageBucket: 'alraedclub-6d192.appspot.com',
-    iosBundleId: 'com.example.alradiApp.RunnerTests',
+    iosBundleId: 'com.alradiApp.mhmd.RunnerTests',
   );
 }
