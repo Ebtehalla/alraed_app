@@ -9,6 +9,124 @@ class playersCard extends StatefulWidget {
   State<playersCard> createState() => _playersCardState();
 }
 
+List<Map<String, dynamic>> playersList = [
+  {
+    "Image": "assets/khalad.png",
+    "Name": "خالد الخثلان",
+    "POS": "دفاع",
+  },
+  {
+    "Image": "assets/raid.png",
+    "Name": " رائد الغامدي",
+    "POS": "مهاجم",
+  },
+  {
+    "Image": "assets/sultan.png",
+    "Name": "سلطان الفرحان",
+    "POS": "وسط",
+  },
+  {
+    "Image": "assets/ad2.png",
+    "Name": "عبدالله الفهد",
+    "POS": "دفاع",
+  },
+  {
+    "Image": "assets/karam.png",
+    "Name": "كريم البركاوي",
+    "POS": "مهاجم",
+  },
+  {
+    "Image": "assets/mouhmad_aldosry.png",
+    "Name": "محمد الدوسري",
+    "POS": "وسط",
+  },
+  {
+    "Image": "assets/mouhmad-salm.png",
+    "Name": "محمد سالم",
+    "POS": "دفاع",
+  },
+  {
+    "Image": "assets/mouhmad_fozir.png",
+    "Name": "محمد فوزير",
+    "POS": "مهاجم",
+  },
+  {
+    "Image": "assets/mansour3.png",
+    "Name": "منصور الحربي",
+    "POS": "دفاع",
+  },
+  {
+    "Image": "assets/uhih.png",
+    "Name": "يحيى الشهري",
+    "POS": "وسط",
+  },
+  {
+    "Image": "assets/aoud.png",
+    "Name": "عوض خميس",
+    "POS": "دفاع",
+  },
+  {
+    "Image": "assets/ahmad_alrhuli.png",
+    "Name": "احمد الرحيلي",
+    "POS": "حارس",
+  },
+  {
+    "Image": "assets/alghtina.png",
+    "Name": "عبدالمحسن القحطاني",
+    "POS": "وسط",
+  },
+  {
+    "Image": "assets/mansour_albishy.png",
+    "Name": "منصور البيشي ",
+    "POS": "وسط",
+  },
+  {
+    "Image": "assets/yhiti_bashy.png",
+    "Name": "يحيى سنبل",
+    "POS": "دفاع",
+  },
+  {
+    "Image": "assets/naif_hazizy.png",
+    "Name": "نايف هزازي",
+    "POS": "دفاع",
+  },
+  {
+    "Image": "assets/alxandr.png",
+    "Name": "ألكسندرو ميتريتا",
+    "POS": "هجوم",
+  },
+  {
+    "Image": "assets/joluim.png",
+    "Name": "جوليو تافاريس",
+    "POS": "هجوم",
+  },
+  {
+    "Image": "assets/bablo.png",
+    "Name": "بابلو سانتوس",
+    "POS": "دفاع",
+  },
+  {
+    "Image": "assets/salifo.png",
+    "Name": "سيليفيو لونغ",
+    "POS": "حارس",
+  },
+  {
+    "Image": "assets/damuin.png",
+    "Name": "داميان يوكوفيتش",
+    "POS": "وسط",
+  },
+  {
+    "Image": "assets/algbrin.png",
+    "Name": "عبدالعزيز الجبرين",
+    "POS": "وسط",
+  },
+  {
+    "Image": "assets/couch.png",
+    "Name": "ماريوس سوموديكا",
+    "POS": "مدرب",
+  },
+];
+
 // ignore: camel_case_types
 class _playersCardState extends State<playersCard> {
   /*
@@ -62,123 +180,6 @@ class _playersCardState extends State<playersCard> {
       بس احنا بنسرق من الموقع
       ويتت 
    */
-  List<Map<String, dynamic>> playersList = [
-    {
-      "Image": "assets/khalad.png",
-      "Name": "خالد الخثلان",
-      "POS": "دفاع",
-    },
-    {
-      "Image": "assets/raid.png",
-      "Name": " رائد الغامدي",
-      "POS": "مهاجم",
-    },
-    {
-      "Image": "assets/sultan.png",
-      "Name": "سلطان الفرحان",
-      "POS": "وسط",
-    },
-    {
-      "Image": "assets/ad2.png",
-      "Name": "عبدالله الفهد",
-      "POS": "دفاع",
-    },
-    {
-      "Image": "assets/karam.png",
-      "Name": "كريم البركاوي",
-      "POS": "مهاجم",
-    },
-    {
-      "Image": "assets/mouhmad_aldosry.png",
-      "Name": "محمد الدوسري",
-      "POS": "وسط",
-    },
-    {
-      "Image": "assets/mouhmad-salm.png",
-      "Name": "محمد سالم",
-      "POS": "دفاع",
-    },
-    {
-      "Image": "assets/mouhmad_fozir.png",
-      "Name": "محمد فوزير",
-      "POS": "مهاجم",
-    },
-    {
-      "Image": "assets/mansour3.png",
-      "Name": "منصور الحربي",
-      "POS": "دفاع",
-    },
-    {
-      "Image": "assets/uhih.png",
-      "Name": "يحيى الشهري",
-      "POS": "وسط",
-    },
-    {
-      "Image": "assets/aoud.png",
-      "Name": "عوض خميس",
-      "POS": "دفاع",
-    },
-    {
-      "Image": "assets/ahmad_alrhuli.png",
-      "Name": "احمد الرحيلي",
-      "POS": "حارس",
-    },
-    {
-      "Image": "assets/alghtina.png",
-      "Name": "عبدالمحسن القحطاني",
-      "POS": "وسط",
-    },
-    {
-      "Image": "assets/mansour_albishy.png",
-      "Name": "منصور البيشي ",
-      "POS": "وسط",
-    },
-    {
-      "Image": "assets/yhiti_bashy.png",
-      "Name": "يحيى سنبل",
-      "POS": "دفاع",
-    },
-    {
-      "Image": "assets/naif_hazizy.png",
-      "Name": "نايف هزازي",
-      "POS": "دفاع",
-    },
-    {
-      "Image": "assets/alxandr.png",
-      "Name": "ألكسندرو ميتريتا",
-      "POS": "هجوم",
-    },
-    {
-      "Image": "assets/joluim.png",
-      "Name": "جوليو تافاريس",
-      "POS": "هجوم",
-    },
-    {
-      "Image": "assets/bablo.png",
-      "Name": "بابلو سانتوس",
-      "POS": "دفاع",
-    },
-    {
-      "Image": "assets/salifo.png",
-      "Name": "سيليفيو لونغ",
-      "POS": "حارس",
-    },
-    {
-      "Image": "assets/damuin.png",
-      "Name": "داميان يوكوفيتش",
-      "POS": "وسط",
-    },
-    {
-      "Image": "assets/algbrin.png",
-      "Name": "عبدالعزيز الجبرين",
-      "POS": "وسط",
-    },
-    {
-      "Image": "assets/couch.png",
-      "Name": "ماريوس سوموديكا",
-      "POS": "مدرب",
-    },
-  ];
   /*
   طيب الحين عندنا لسته
   playersList
@@ -198,7 +199,7 @@ class _playersCardState extends State<playersCard> {
                 borderRadius: BorderRadius.circular(12),
                 color: Colors.grey.shade100,
               ),
-              height: 250,
+              height: MediaQuery.of(context).size.height / 4,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: playersList.length,

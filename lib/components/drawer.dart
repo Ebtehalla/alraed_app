@@ -1,6 +1,7 @@
 import 'package:alradi_app/components/pages/ClubVision.dart';
 import 'package:alradi_app/components/pages/SurveyScreen.dart';
 import 'package:alradi_app/components/pages/acadmic.dart';
+import 'package:alradi_app/components/pages/all_players.dart';
 import 'package:alradi_app/components/pages/document.dart';
 import 'package:alradi_app/components/pages/goalsclub.dart';
 import 'package:alradi_app/components/pages/pageemplo.dart';
@@ -138,8 +139,11 @@ class AppDrawer extends StatelessWidget {
                 context,
                 'الرياضات',
                 [
-                  myListTile(context, 'كرة القدم',
-                      Icons.sports_basketball_sharp, const playersCard()),
+                  myListTile(
+                      context,
+                      'كرة القدم',
+                      Icons.sports_basketball_sharp,
+                      AllPlayers(playersList: playersList)),
                   myListTile(context, 'الأكاديمية', Icons.blur_linear_sharp,
                       const acdimc()),
                 ],
@@ -262,11 +266,10 @@ navigateToKey(BuildContext context, List<GlobalKey>? keys, int index) {
 Widget myListTile(
     BuildContext context, String title, IconData icon, Widget screenName) {
   return GestureDetector(
-    onTap: () => Navigator.of(context).pushAndRemoveUntil(
+    onTap: () => Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => screenName,
       ),
-      (route) => false,
     ),
     child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
