@@ -44,38 +44,38 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyD_88r8btaxRaHjWtn0M7iAePwSOq6ZXMg',
-    appId: '1:678557577625:web:4052ea5cbe105bca2da308',
-    messagingSenderId: '678557577625',
-    projectId: 'alraedclub-6d192',
-    authDomain: 'alraedclub-6d192.firebaseapp.com',
-    storageBucket: 'alraedclub-6d192.appspot.com',
-    measurementId: 'G-CSNTXX079W',
+    apiKey: 'AIzaSyAdrCA916-3IR5uaxUsWrQngq_JaGc7AmY',
+    appId: '1:811933956641:web:76a07f0b8d097c739d4160',
+    messagingSenderId: '811933956641',
+    projectId: 'alraed-64db3',
+    authDomain: 'alraed-64db3.firebaseapp.com',
+    storageBucket: 'alraed-64db3.appspot.com',
+    measurementId: 'G-023588JF0X',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyA-pDuT-dJkcP3YQLYBRZlO3EUr8GTz5rE',
-    appId: '1:678557577625:android:c558eb0ca7c5d5272da308',
-    messagingSenderId: '678557577625',
-    projectId: 'alraedclub-6d192',
-    storageBucket: 'alraedclub-6d192.appspot.com',
+    apiKey: 'AIzaSyAF3zLsX91FmvegNwJkmc0Dma2yqJydMKU',
+    appId: '1:811933956641:android:8a25d35ff86700249d4160',
+    messagingSenderId: '811933956641',
+    projectId: 'alraed-64db3',
+    storageBucket: 'alraed-64db3.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyA6ik_9JjkR8P5FexWI6N5HUmxDW-qfM0A',
-    appId: '1:678557577625:ios:867e1219654f39542da308',
-    messagingSenderId: '678557577625',
-    projectId: 'alraedclub-6d192',
-    storageBucket: 'alraedclub-6d192.appspot.com',
+    apiKey: 'AIzaSyA0dKwJtBAzXXuzSqoaAOFcBvmBk43eDeM',
+    appId: '1:811933956641:ios:0bfbd1927fc7ed579d4160',
+    messagingSenderId: '811933956641',
+    projectId: 'alraed-64db3',
+    storageBucket: 'alraed-64db3.appspot.com',
     iosBundleId: 'com.alradiApp.mhmd',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyA6ik_9JjkR8P5FexWI6N5HUmxDW-qfM0A',
-    appId: '1:678557577625:ios:98f2b6ff95d7b5fe2da308',
-    messagingSenderId: '678557577625',
-    projectId: 'alraedclub-6d192',
-    storageBucket: 'alraedclub-6d192.appspot.com',
+    apiKey: 'AIzaSyA0dKwJtBAzXXuzSqoaAOFcBvmBk43eDeM',
+    appId: '1:811933956641:ios:639af7e9389da25e9d4160',
+    messagingSenderId: '811933956641',
+    projectId: 'alraed-64db3',
+    storageBucket: 'alraed-64db3.appspot.com',
     iosBundleId: 'com.alradiApp.mhmd.RunnerTests',
   );
 }

@@ -3,6 +3,11 @@ import 'package:alradi_app/components/drawer.dart';
 import 'package:alradi_app/components/footer.dart';
 import 'package:flutter/material.dart';
 import 'package:alradi_app/components/pages/players_cards.dart';
+import 'package:uuid/uuid.dart';
+
+import '../data_sources/players_apis.dart';
+import '../models/player_model.dart';
+import '../services/firebaseApi.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required String title, required String imagePath});
@@ -44,9 +49,15 @@ class _HomePageState extends State<HomePage> {
                   const UpComingMatch(),
                   Column(
                     children: [
-                      Text(
-                        'قائمة اللاعبين',
-                        key: playersKey,
+                      GestureDetector(
+                        onTap: () {
+                          FirebaseApiService().createNews("sdsds",
+                              "https://upload.wikimedia.org/wikipedia/en/2/28/AlRaed_logo.png");
+                        },
+                        child: Text(
+                          'قائمة اللاعبين',
+                          key: playersKey,
+                        ),
                       ),
                       const playersCard(),
                     ],

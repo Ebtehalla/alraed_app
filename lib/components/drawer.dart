@@ -7,7 +7,6 @@ import 'package:alradi_app/components/pages/goalsclub.dart';
 import 'package:alradi_app/components/pages/pageemplo.dart';
 import 'package:alradi_app/components/pages/pagevisit.dart';
 import 'package:alradi_app/components/pages/playdiff.dart';
-import 'package:alradi_app/components/pages/players_cards.dart';
 import 'package:alradi_app/components/pages/problem.dart';
 import 'package:alradi_app/components/pages/report.dart';
 import 'package:alradi_app/components/pages/store.dart';
@@ -140,10 +139,11 @@ class AppDrawer extends StatelessWidget {
                 'الرياضات',
                 [
                   myListTile(
-                      context,
-                      'كرة القدم',
-                      Icons.sports_basketball_sharp,
-                      AllPlayers(playersList: playersList)),
+                    context,
+                    'كرة القدم',
+                    Icons.sports_basketball_sharp,
+                    AllPlayers(),
+                  ),
                   myListTile(context, 'الأكاديمية', Icons.blur_linear_sharp,
                       const acdimc()),
                 ],

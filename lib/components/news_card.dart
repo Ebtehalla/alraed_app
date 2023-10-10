@@ -3,17 +3,12 @@ import 'package:flutter/material.dart';
 
 class MyNewsCard extends StatefulWidget {
   final String title;
-  final String category;
   final String img;
-  final String content;
-  final String time;
-  const MyNewsCard(
-      {super.key,
-      required this.title,
-      required this.category,
-      required this.img,
-      required this.content,
-      required this.time});
+  const MyNewsCard({
+    super.key,
+    required this.title,
+    required this.img,
+  });
 
   @override
   State<MyNewsCard> createState() => _MyNewsCardState();
@@ -63,54 +58,41 @@ class _MyNewsCardState extends State<MyNewsCard> {
               ),
             ),
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                padding: EdgeInsets.only(bottom: 12),
-                width: MediaQuery.of(context).size.width * 0.6,
-                child: Text(
-                  widget.title,
-                  softWrap: true,
-                  textAlign: TextAlign.center,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-              ),
-              Column(
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  // Text(
-                  //   widget.category,
-                  //   style: const TextStyle(
-                  //     color: Colors.black45,
-                  //     fontSize: 14,
-                  //     fontWeight: FontWeight.w300,
-                  //   ),
-                  // ),
-                  // Text(widget.time.toString()),
+                  Text(
+                    widget.title,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
                   TextButton(
                     onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => FullNews(
-                          category: widget.category,
-                          content: widget.content,
-                          img: widget.img,
-                          time: widget.time,
-                          title: widget.title,
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => FullNews(
+                            img: widget.img,
+                            title: widget.title,
+                          ),
                         ),
-                      ));
+                      );
                     },
                     child: const Text('المزيد'),
                   ),
                 ],
               ),
-            ],
+            ),
           ),
-          const SizedBox()
         ].reversed.toList(),
       ),
     );

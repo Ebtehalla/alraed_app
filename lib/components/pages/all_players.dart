@@ -1,8 +1,11 @@
+import 'package:alradi_app/data_sources/news_api.dart';
 import 'package:flutter/material.dart';
 
+import '../../models/player_model.dart';
+import '../../services/firebaseApi.dart';
+
 class AllPlayers extends StatefulWidget {
-  final List<Map<String, dynamic>> playersList;
-  const AllPlayers({Key? key, required this.playersList}) : super(key: key);
+  const AllPlayers({Key? key}) : super(key: key);
 
   @override
   State<AllPlayers> createState() => _AllPlayersState();
@@ -11,9 +14,6 @@ class AllPlayers extends StatefulWidget {
 class _AllPlayersState extends State<AllPlayers> {
   @override
   Widget build(BuildContext context) {
-    List<Map<String, dynamic>> playersList = widget.playersList;
-    print('صفحة جميع اللاعبين تسلم عليك وتقول');
-    print(playersList);
     return Scaffold(
       appBar: AppBar(
         title: const Text('لاعبين نادي الرائد'),
@@ -27,101 +27,97 @@ class _AllPlayersState extends State<AllPlayers> {
         toolbarHeight: 60,
       ),
       body: SafeArea(
-        child: Center(
-          child: Column(
-            children: [
-              Container(
-                height: 90.0,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/first_olayr.png'),
-                    fit: BoxFit.cover,
-                  ),
+        child: Column(
+          children: [
+            Container(
+              height: 90.0,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/first_olayr.png'),
+                  fit: BoxFit.cover,
                 ),
               ),
-              const SizedBox(height: 10), // تباعد بين الصورة والنص
-
-              Expanded(
-                child: GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2), //عدد اللاعبين بصف
-                  itemCount: playersList.length,
-
-                  // يعني بيلف على اللست كلها وبيعرض الايتم نفسه داخل البوكس الي بنسويه
-                  itemBuilder: (context, index) {
-                    // حق نسهل لنفسنا نحفظ الماب الحالي في ماب ثاني
-                    Map<String, dynamic> currentPlayer = playersList[index];
-
-                    return GestureDetector(
-                      onTap: () {
-                        print(currentPlayer);
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 2,
-                              blurRadius: 5,
-                              offset: const Offset(0, 3),
-                            ),
-                          ],
-                          borderRadius: BorderRadius.circular(10),
+            ),
+            Expanded(
+              child: FutureBuilder<List<PlayerModel>>(
+                future: FirebaseApiService().getAllPlayers(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    List<PlayerModel>? players = snapshot.data;
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: GridView.builder(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
                         ),
-                        child: Card(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(9)),
-                          child: SizedBox(
-                            height: MediaQuery.of(context).size.width * 0.15,
-                            width: MediaQuery.of(context).size.width * 0.15,
-                            child: Column(
-                              children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(12),
-                                  child: Builder(builder: (context) {
-                                    String image = currentPlayer['Image'];
-                                    if (image.contains('http')) {
-                                      return Image.network(
-                                        currentPlayer['Image'],
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.12,
-                                        height:
-                                            MediaQuery.of(context).size.width *
-                                                0.12,
-                                        fit: BoxFit.contain,
-                                      );
-                                    } else {
-                                      return Image.asset(
-                                        currentPlayer['Image'],
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.3,
-                                        height:
-                                            MediaQuery.of(context).size.width *
-                                                0.3,
-                                        fit: BoxFit.fitHeight,
-                                      );
-                                    }
-                                  }),
+                        itemCount: players?.length ?? 0,
+                        itemBuilder: (context, index) {
+                          return GestureDetector(
+                            onTap: () async {
+                              await getNews();
+                            },
+                            child: Card(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12)),
+                              child: SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.3,
+                                child: Column(
+                                  children: [
+                                    ClipRRect(
+                                        borderRadius: BorderRadius.circular(12),
+                                        child: Image.network(
+                                          players?[index].playerImage ?? "",
+                                          errorBuilder:
+                                              (context, error, stackTrace) =>
+                                                  const Icon(Icons.face),
+                                          loadingBuilder: (context, child,
+                                              loadingProgress) {
+                                            return loadingProgress == null
+                                                ? child
+                                                : CircularProgressIndicator
+                                                    .adaptive(
+                                                    value: loadingProgress
+                                                            .cumulativeBytesLoaded /
+                                                        loadingProgress
+                                                            .expectedTotalBytes!
+                                                            .toInt(),
+                                                  );
+                                          },
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.2,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.3,
+                                          fit: BoxFit.contain,
+                                        )),
+                                    Text(players?[index].playerPosition ?? ""),
+                                    Text((players?[index]
+                                                .playerNumber
+                                                .toString() ??
+                                            "")
+                                        .replaceAll("null", "")),
+                                    Text(players?[index].playerName ?? ""),
+                                  ],
                                 ),
-                                Text(
-                                  currentPlayer['POS'],
-                                ),
-                                Text(
-                                  currentPlayer['Name'],
-                                ),
-                              ],
+                              ),
                             ),
-                          ),
-                        ),
+                          );
+                        },
                       ),
                     );
-                  },
-                ),
+                  } else {
+                    return const Center(
+                      child: CircularProgressIndicator.adaptive(),
+                    );
+                  }
+                },
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
