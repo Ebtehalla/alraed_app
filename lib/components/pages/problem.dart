@@ -1,14 +1,14 @@
-import 'package:alradi_app/components/drawer.dart';
+import '../drawer.dart';
 import 'package:flutter/material.dart';
 
-class broblem extends StatefulWidget {
-  const broblem({Key? key}) : super(key: key);
+class Problem extends StatefulWidget {
+  const Problem({Key? key}) : super(key: key);
 
   @override
-  State<broblem> createState() => _broblemState();
+  State<Problem> createState() => _ProblemState();
 }
 
-class _broblemState extends State<broblem> {
+class _ProblemState extends State<Problem> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -169,7 +169,7 @@ class _broblemState extends State<broblem> {
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        primary: const Color.fromARGB(255, 14, 15, 14),
+                        backgroundColor: const Color.fromARGB(255, 14, 15, 14),
                         shape: const StadiumBorder(),
                         padding: const EdgeInsets.symmetric(
                           vertical: 16,

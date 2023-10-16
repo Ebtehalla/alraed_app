@@ -1,9 +1,9 @@
-import 'package:alradi_app/components/pages/all_players.dart';
 import 'package:flutter/material.dart';
 
 import '../../data_sources/news_api.dart';
 import '../../models/player_model.dart';
-import '../../services/firebaseApi.dart';
+import '../../services/firebase_api.dart';
+import '../network_image.dart';
 
 // ignore: camel_case_types
 class playersCard extends StatefulWidget {
@@ -48,34 +48,14 @@ class _playersCardState extends State<playersCard> {
                               width: MediaQuery.of(context).size.width * 0.3,
                               child: Column(
                                 children: [
-                                  ClipRRect(
-                                      borderRadius: BorderRadius.circular(12),
-                                      child: Image.network(
-                                        players?[index].playerImage ?? "",
-                                        errorBuilder:
-                                            (context, error, stackTrace) =>
-                                                const Icon(Icons.face),
-                                        loadingBuilder:
-                                            (context, child, loadingProgress) {
-                                          return loadingProgress == null
-                                              ? child
-                                              : CircularProgressIndicator
-                                                  .adaptive(
-                                                  value: loadingProgress
-                                                          .cumulativeBytesLoaded /
-                                                      loadingProgress
-                                                          .expectedTotalBytes!
-                                                          .toInt(),
-                                                );
-                                        },
-                                        height:
-                                            MediaQuery.of(context).size.width *
-                                                0.2,
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.3,
-                                        fit: BoxFit.contain,
-                                      )),
+                                  AppCashedImage(
+                                    imageUrl: players?[index].playerImage ?? "",
+                                    height:
+                                        MediaQuery.of(context).size.width * 0.2,
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.3,
+                                    fit: BoxFit.contain,
+                                  ),
                                   Text(players?[index].playerPosition ?? ""),
                                   Text((players?[index]
                                               .playerNumber

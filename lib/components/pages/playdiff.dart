@@ -1,8 +1,8 @@
-import 'package:alradi_app/components/drawer.dart';
+import '../drawer.dart';
 import 'package:flutter/material.dart';
 
 class Cards extends StatelessWidget {
-  const Cards({Key? key});
+  const Cards({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -100,7 +100,7 @@ class CardWidget extends StatelessWidget {
   final String imagePath;
 
   const CardWidget({
-    Key? key,
+    super.key,
     required this.name,
     required this.imagePath,
   });

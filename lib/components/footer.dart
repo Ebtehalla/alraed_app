@@ -1,4 +1,4 @@
-import 'package:alradi_app/services/function.dart';
+import '../services/function.dart';
 import 'package:flutter/material.dart';
 
 class Footer extends StatefulWidget {
@@ -40,7 +40,7 @@ class _FooterState extends State<Footer> {
             // العنوان
             Column(
               children: [
-                Text(
+                const Text(
                   'العنوان',
                   style: TextStyle(
                     fontSize: 16,
@@ -48,9 +48,9 @@ class _FooterState extends State<Footer> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(bottom: 12),
+                  padding: const EdgeInsets.only(bottom: 12),
                   width: MediaQuery.of(context).size.width * 0.3,
-                  child: Text(
+                  child: const Text(
                     'المملكة العربية السعودية - القصيم - بريدة',
                     softWrap: true,
                     textAlign: TextAlign.center,
@@ -91,7 +91,7 @@ class _FooterState extends State<Footer> {
             ),
           ],
         ),
-        Text(
+        const Text(
           'جميع الحقوق محفوظة لنادي الرائد 2023 صمم بواسطة بانورما القصيم',
           style: TextStyle(
             fontSize: 12,

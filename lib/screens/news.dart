@@ -1,8 +1,8 @@
 import 'dart:developer';
 
-import 'package:alradi_app/components/drawer.dart';
-import 'package:alradi_app/components/news_card.dart';
-import 'package:alradi_app/services/firebaseApi.dart';
+import '../components/drawer.dart';
+import '../components/news_card.dart';
+import '../services/firebase_api.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 

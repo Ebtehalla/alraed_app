@@ -1,4 +1,4 @@
-import 'package:alradi_app/components/drawer.dart';
+import '../drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
@@ -310,7 +310,7 @@ class SurveyScreen extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    primary: const Color.fromARGB(
+                    backgroundColor: const Color.fromARGB(
                         255, 55, 122, 58), // Set the desired color here
                     shape: const StadiumBorder(),
                     padding: const EdgeInsets.symmetric(

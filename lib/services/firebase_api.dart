@@ -22,7 +22,7 @@ class FirebaseApiService {
       List<DocumentSnapshot> documents = querySnapshot.docs;
       return documents;
     } catch (e) {
-      print('Error reading documents: $e');
+      log('Error reading documents: $e');
       return [];
     }
   }

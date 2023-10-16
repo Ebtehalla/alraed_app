@@ -1,14 +1,15 @@
-import 'package:alradi_app/components/drawer.dart';
+import '../drawer.dart';
 import 'package:flutter/material.dart';
 
-class acdimc extends StatefulWidget {
-  const acdimc({Key? key});
+class Acdimc extends StatefulWidget {
+  const Acdimc({super.key});
 
   @override
-  _acdimcState createState() => _acdimcState();
+  // ignore: library_private_types_in_public_api
+  _AcdimcState createState() => _AcdimcState();
 }
 
-class _acdimcState extends State<acdimc> {
+class _AcdimcState extends State<Acdimc> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,7 +70,7 @@ class _acdimcState extends State<acdimc> {
             padding: const EdgeInsets.all(
                 26), // هنا يمكنك تعديل التباعد الداخلي للنص
             child: const Text(
-              'واشتهر اسم النادي في لعبة كرة القدم حيث يلعب في الدوري الممتاز منذ عام ١٤٠٦هـ والذي يطلق عليه حاليا اسم دوري محمد بن سلمان للمحترفين. وحقق النادي أفضل ترتيب له في بعض المواسم باحتلاله المركز الخامس، وحصل مرّتين على بطولة  دوري الدرجة الأولى السعودي عامي 1992م و2008م، كما فاز بدوري الدرجة الثانية السعودي في عام 2006م، وكأس الأمير فيصل بن فهد لأندية الدرجة الأولى والثانية عام 2006م.ويعتمد النادي أساساً في تزويد الفريق الأول لكرة القدم باللّاعبين على الفئات السنّية التي يعتني النادي بتطويرها إضافة إلى استقطاب عدد محدود من اللّاعبين الأجانب.',
+              "واشتهر اسم النادي في لعبة كرة القدم حيث يلعب في الدوري الممتاز منذ عام ١٤٠٦هـ والذي يطلق عليه حاليا اسم دوري محمد بن سلمان للمحترفين. وحقق النادي أفضل ترتيب له في بعض المواسم باحتلاله المركز الخامس، وحصل مرّتين على بطولة  دوري الدرجة الأولى السعودي عامي 1992م و2008م، كما فاز بدوري الدرجة الثانية السعودي في عام 2006م، وكأس الأمير فيصل بن فهد لأندية الدرجة الأولى والثانية عام 2006م.ويعتمد النادي أساساً في تزويد الفريق الأول لكرة القدم باللّاعبين على الفئات السنّية التي يعتني النادي بتطويرها إضافة إلى استقطاب عدد محدود من اللّاعبين الأجانب",
               textAlign: TextAlign.right,
               style: TextStyle(
                 fontSize: 13,

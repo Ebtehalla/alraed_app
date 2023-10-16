@@ -1,8 +1,10 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:alradi_app/components/drawer.dart';
 import 'package:flutter/material.dart';
 
 class ClubVision extends StatefulWidget {
-  const ClubVision({Key? key});
+  const ClubVision({super.key});
 
   @override
   _ClubVisionState createState() => _ClubVisionState();
@@ -32,7 +34,8 @@ class _ClubVisionState extends State<ClubVision> {
       drawer: AppDrawer(),
       backgroundColor: Colors.white, // خلفية بيضاء
       body: SingleChildScrollView(
-        child: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -57,9 +60,10 @@ class _ClubVisionState extends State<ClubVision> {
               ),
               const SizedBox(height: 20),
               const Text(
-                'البقاء ضمن الفرق الخمس الأول في دوري المحترفين لكرة القدم  ومنافساً في الألعاب المختلفة',
+                "أن نكون ناديًا رائدًا يعزز النمو المستدام في المجال الرياضي محلياً ودولياً",
                 textAlign: TextAlign.center,
               ),
+              const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -88,7 +92,7 @@ class _ClubVisionState extends State<ClubVision> {
               ),
               const SizedBox(height: 20),
               const Text(
-                'توفير بيئة رياضية محفّزة للممارسين في مختلف الألعاب الرياضية وجاذبة للاستثمار، مع الالتزام بتفعيل المسؤولية الاجتماعية، لتحقيق تطلعات الشركاء والتوجهات المستقبلية للمملكة.',
+                "توفير بيئة رياضية محفّزة في مختلف الألعاب الرياضية، وخلق بيئة جاذبة للاستثمار، و تفعيل المسؤولية الاجتماعية، وتعزيز الإستدامة المهنية والمالية وذلك لتحقيق تطلعات الشركاء والتوجهات المستقبلية للمملكة",
                 textAlign: TextAlign.center,
               ),
               Row(
@@ -111,9 +115,17 @@ class _ClubVisionState extends State<ClubVision> {
                 ],
               ),
               const SizedBox(height: 20),
-              const Text(
-                'في ضوء الالتزام بالقيم الإسلامية، يُؤمن نادي الرائد السعودي بالقيّم التالية التي يسعى إلى تطبيقها في كافة أنشطته ومعاملاته، إضافة إلى نشرها لجميع شركائه الداخليين والخارجيين وغرسها في نفوسهم بما يضمن بيئة عمل تنافسية في النادي.  ( التحدي  ،  الاحترافية  ،  الشفافية  ،  العمل الجماعي    ،  الشفافية    ،  العمل الجماعي  ،   الأمانة  ،  الروح الرياضية  ،  الانضباط  )',
-                textAlign: TextAlign.center,
+              ...[
+                "التحدي",
+                "الروح الرياضية",
+                "الاحترافية",
+                "التميز المؤسسي",
+                "الالتزام"
+              ].map(
+                (e) => Text(
+                  "$e-",
+                  textAlign: TextAlign.start,
+                ),
               ),
               const SizedBox(height: 30),
             ],

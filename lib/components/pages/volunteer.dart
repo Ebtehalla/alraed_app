@@ -1,14 +1,14 @@
-import 'package:alradi_app/components/drawer.dart';
+import '../drawer.dart';
 import 'package:flutter/material.dart';
 
-class volunteer extends StatefulWidget {
-  const volunteer({Key? key}) : super(key: key);
+class Volunteer extends StatefulWidget {
+  const Volunteer({Key? key}) : super(key: key);
 
   @override
-  State<volunteer> createState() => _volunteerState();
+  State<Volunteer> createState() => _VolunteerState();
 }
 
-class _volunteerState extends State<volunteer> {
+class _VolunteerState extends State<Volunteer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -384,7 +384,7 @@ class _volunteerState extends State<volunteer> {
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        primary: const Color.fromARGB(255, 14, 15, 14),
+                        backgroundColor: const Color.fromARGB(255, 14, 15, 14),
                         shape: const StadiumBorder(),
                         padding: const EdgeInsets.symmetric(
                           vertical: 16,

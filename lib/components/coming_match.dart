@@ -1,4 +1,4 @@
-import 'package:alradi_app/models/next_match_model.dart';
+import '../models/next_match_model.dart';
 
 import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';

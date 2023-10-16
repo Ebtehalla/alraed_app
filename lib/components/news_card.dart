@@ -1,4 +1,4 @@
-import 'package:alradi_app/screens/news_full_information.dart';
+import '../screens/news_full_information.dart';
 import 'package:flutter/material.dart';
 
 class MyNewsCard extends StatefulWidget {

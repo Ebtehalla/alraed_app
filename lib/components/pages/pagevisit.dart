@@ -1,11 +1,11 @@
-import 'package:alradi_app/components/drawer.dart';
+import '../drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
-class pagevisit extends StatelessWidget {
+class Pagevisit extends StatelessWidget {
   final GlobalKey<FormBuilderState> _formKey = GlobalKey<FormBuilderState>();
 
-  pagevisit({Key? key}) : super(key: key);
+  Pagevisit({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -258,7 +258,7 @@ class pagevisit extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.black54, // Set the desired color here
+                    backgroundColor: Colors.black54, // Set the desired color here
                     shape: const StadiumBorder(),
                     padding: const EdgeInsets.symmetric(
                         vertical: 16,

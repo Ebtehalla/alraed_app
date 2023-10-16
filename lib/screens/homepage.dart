@@ -1,13 +1,9 @@
-import 'package:alradi_app/components/coming_match.dart';
-import 'package:alradi_app/components/drawer.dart';
-import 'package:alradi_app/components/footer.dart';
+import '../components/coming_match.dart';
+import '../components/drawer.dart';
+import '../components/footer.dart';
 import 'package:flutter/material.dart';
-import 'package:alradi_app/components/pages/players_cards.dart';
-import 'package:uuid/uuid.dart';
-
-import '../data_sources/players_apis.dart';
-import '../models/player_model.dart';
-import '../services/firebaseApi.dart';
+import '../components/pages/players_cards.dart';
+import '../services/firebase_api.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required String title, required String imagePath});

@@ -1,5 +1,5 @@
-import 'package:alradi_app/components/drawer.dart';
-import 'package:alradi_app/services/function.dart';
+import '../drawer.dart';
+import '../../services/function.dart';
 import 'package:flutter/material.dart';
 
 class BoardPage extends StatefulWidget {
@@ -104,7 +104,7 @@ class _BoardPageState extends State<BoardPage> {
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        primary: const Color.fromARGB(255, 14, 15, 14),
+                        backgroundColor: const Color.fromARGB(255, 14, 15, 14),
                         shape: const StadiumBorder(),
                         padding: const EdgeInsets.symmetric(
                           vertical: 16,

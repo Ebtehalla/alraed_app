@@ -1,8 +1,10 @@
-import 'package:alradi_app/data_sources/news_api.dart';
+import 'package:alradi_app/components/drawer.dart';
+
+import '../../data_sources/news_api.dart';
 import 'package:flutter/material.dart';
 
 import '../../models/player_model.dart';
-import '../../services/firebaseApi.dart';
+import '../../services/firebase_api.dart';
 
 class AllPlayers extends StatefulWidget {
   const AllPlayers({Key? key}) : super(key: key);
@@ -25,7 +27,14 @@ class _AllPlayersState extends State<AllPlayers> {
         backgroundColor: const Color.fromARGB(255, 124, 40, 40),
         centerTitle: true,
         toolbarHeight: 60,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomRight: Radius.circular(30),
+            bottomLeft: Radius.circular(30),
+          ),
+        ),
       ),
+      drawer: AppDrawer(),
       body: SafeArea(
         child: Column(
           children: [

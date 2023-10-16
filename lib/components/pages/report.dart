@@ -1,20 +1,20 @@
-import 'package:alradi_app/components/drawer.dart';
+import '../drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class report extends StatefulWidget {
-  const report({Key? key}) : super(key: key);
+class Report extends StatefulWidget {
+  const Report({Key? key}) : super(key: key);
 
   @override
-  State<report> createState() => _reportState();
+  State<Report> createState() => _ReportState();
 }
 
-class _reportState extends State<report> {
+class _ReportState extends State<Report> {
   void openBrowser() async {
     const url =
         'https://www.alraedclub.sa/site/%D8%A7%D9%84%D8%AA%D9%82%D8%B1%D9%8A%D8%B1%20%D8%A7%D9%84%D8%B3%D9%86%D9%88%D9%8A%202021%20-%202022.pdf';
-    if (await canLaunch(url)) {
-      await launch(url);
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrl(Uri.parse(url));
     } else {
       throw 'Could not launch $url';
     }
@@ -46,7 +46,7 @@ class _reportState extends State<report> {
           onPressed: openBrowser,
           style: ElevatedButton.styleFrom(
             backgroundColor:
-                Color.fromARGB(255, 137, 42, 35), // تغيير لون الخلفية هنا
+                const Color.fromARGB(255, 137, 42, 35), // تغيير لون الخلفية هنا
           ),
           child: const Text('المعاينة على التقرير السنوي (2021-2022)'),
         ),
