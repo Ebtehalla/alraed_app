@@ -15,7 +15,7 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   var pages = [
     const HomePage(
-      title: 'نادي الصقر',
+      title: 'نادي الرائد',
       imagePath: '',
     ),
     const NewsPage(),

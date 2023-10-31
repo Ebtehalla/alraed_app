@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "811933956641",
-    "project_id": "alraed-64db3",
-    "storage_bucket": "alraed-64db3.appspot.com"
+    "project_number": "91512150129",
+    "project_id": "alraed-club",
+    "storage_bucket": "alraed-club.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:811933956641:android:8a25d35ff86700249d4160",
+        "mobilesdk_app_id": "1:91512150129:android:23d62e89cb86cf5d0523d0",
         "android_client_info": {
           "package_name": "com.elmarakby.elraed"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAF3zLsX91FmvegNwJkmc0Dma2yqJydMKU"
+          "current_key": "AIzaSyDRT1Bqp9qtJcR1T4E3itnDX3ERlbW3ve0"
         }
       ],
       "services": {
