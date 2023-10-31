@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyBFHfapWip1VaE3duXitoNHiEDAA45546o</string>
+	<string>AIzaSyA6ik_9JjkR8P5FexWI6N5HUmxDW-qfM0A</string>
 	<key>GCM_SENDER_ID</key>
-	<string>91512150129</string>
+	<string>678557577625</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.alradiApp.mhmd</string>
 	<key>PROJECT_ID</key>
-	<string>alraed-club</string>
+	<string>alraedclub-6d192</string>
 	<key>STORAGE_BUCKET</key>
-	<string>alraed-club.appspot.com</string>
+	<string>alraedclub-6d192.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:91512150129:ios:a3dd183ad715b54e0523d0</string>
+	<string>1:678557577625:ios:c45f27e802ff2da62da308</string>
 </dict>
 </plist>

@@ -46,10 +46,10 @@ class _NewsPageState extends State<NewsPage> {
                 itemBuilder: (context, index) {
                   var item = news[index].data() as Map<dynamic, dynamic>;
                   Map<String, dynamic> map = Map.from(item);
-                  log(map['imageUrl']);
+                  log(map['img']);
                   return MyNewsCard(
                     title: map['title'],
-                    img: map['imageUrl'],
+                    img: map['img'],
                   );
                 },
               );

@@ -1,7 +1,10 @@
+import 'network_image.dart';
+
 import '../models/next_match_model.dart';
 
 import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../data_sources/next_match_api.dart';
 
@@ -28,26 +31,14 @@ class _UpComingMatchState extends State<UpComingMatch> {
                 Center(
                   child: Container(
                     decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 255, 255, 255),
+                      color: Colors.white,
                       borderRadius: const BorderRadius.all(Radius.circular(20)),
-                      border: Border.all(
-                        color: const Color.fromARGB(255, 164, 127, 162),
-                        width: 2.0,
-                        style: BorderStyle.none, // نمط الحافة المتقطعة
-                      ),
                       boxShadow: [
                         BoxShadow(
-                          color: const Color.fromARGB(255, 115, 62, 97)
-                              .withOpacity(0.5),
+                          color: Colors.grey.withOpacity(.2),
                           spreadRadius: 2,
                           blurRadius: 5,
-                          offset: const Offset(6, 6),
-                        ),
-                        const BoxShadow(
-                          color: Color.fromARGB(255, 236, 233, 233),
-                          spreadRadius: 1,
-                          blurRadius: 2,
-                          offset: Offset(-6, -6),
+                          offset: const Offset(1, 2),
                         ),
                       ],
                     ),
@@ -69,25 +60,14 @@ class _UpComingMatchState extends State<UpComingMatch> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Column(
-                                children: [
-                                  // SizedBox(
-                                  //   height: 80,
-                                  //   width: 100,
-                                  // ),
-                                  Center(
-                                      child: Image.network(
-                                    match?.away?.image ?? "",
-                                    height: 100,
-                                    width: 50,
-                                  )),
-                                  Text(match?.away?.name ?? ""),
-                                ],
+                              AppCashedImage(
+                                imageUrl: match?.away?.image ?? "",
+                                height: 100,
+                                width: 50,
+                                fit: BoxFit.contain,
                               ),
-                              const SizedBox(
-                                width: 30,
-                                height: 10,
-                              ),
+                              Text(match?.away?.name ?? ""),
+                              const SizedBox(width: 30),
                               const Center(
                                 child: Text(
                                   'vs',
@@ -100,16 +80,12 @@ class _UpComingMatchState extends State<UpComingMatch> {
                               const SizedBox(width: 20),
                               Column(
                                 children: [
-                                  // SizedBox(
-                                  //   height: 80,
-                                  //   width: 100,
-                                  // ),
-                                  Center(
-                                      child: Image.network(
-                                    match?.home?.image ?? "",
+                                  AppCashedImage(
+                                    imageUrl: match?.home?.image ?? "",
                                     height: 100,
                                     width: 50,
-                                  )),
+                                    fit: BoxFit.contain,
+                                  ),
                                   Text(match?.home?.name ?? ""),
                                 ],
                               ),
@@ -136,7 +112,8 @@ class _UpComingMatchState extends State<UpComingMatch> {
                                     ],
                                   ),
                                   Text(
-                                      "${(match?.time?.day ?? 00).toString()}/${(match?.time?.month ?? 00).toString()}/${(match?.time?.year ?? 00).toString()}")
+                                    timeAndDateFormate(date: match?.time),
+                                  )
                                 ],
                               ),
                               Column(
@@ -146,7 +123,8 @@ class _UpComingMatchState extends State<UpComingMatch> {
                                       Text(
                                         'المكان',
                                         style: TextStyle(
-                                            fontWeight: FontWeight.w600),
+                                          fontWeight: FontWeight.w600,
+                                        ),
                                       ),
                                       SizedBox(width: 2),
                                       Icon(EneftyIcons.location_outline),
@@ -166,11 +144,22 @@ class _UpComingMatchState extends State<UpComingMatch> {
             ),
           );
         } else {
-          return const Center(
-            child: CircularProgressIndicator.adaptive(),
+          return SizedBox(
+            height: MediaQuery.of(context).size.height / 4,
+            child: const Center(
+              child: CircularProgressIndicator.adaptive(),
+            ),
           );
         }
       },
     );
   }
+}
+
+String timeAndDateFormate({String? date}) {
+  String pattern = "yyyy-MM-dd hh:mm";
+  var format = DateFormat(pattern);
+  var dateString =
+      format.format(DateTime.tryParse(date ?? "") ?? DateTime.now());
+  return dateString;
 }

@@ -1,10 +1,13 @@
-import 'package:alradi_app/components/drawer.dart';
+import 'dart:developer';
+
+import '../../data_sources/players_apis.dart';
+import '../drawer.dart';
+import '../network_image.dart';
 
 import '../../data_sources/news_api.dart';
 import 'package:flutter/material.dart';
 
 import '../../models/player_model.dart';
-import '../../services/firebase_api.dart';
 
 class AllPlayers extends StatefulWidget {
   const AllPlayers({Key? key}) : super(key: key);
@@ -48,9 +51,10 @@ class _AllPlayersState extends State<AllPlayers> {
               ),
             ),
             Expanded(
-              child: FutureBuilder<List<PlayerModel>>(
-                future: FirebaseApiService().getAllPlayers(),
+              child: FutureBuilder<List<PlayerModel>?>(
+                future: PlayersDataSources().getPlayers(),
                 builder: (context, snapshot) {
+                  log(snapshot.error.toString());
                   if (snapshot.hasData) {
                     List<PlayerModel>? players = snapshot.data;
                     return Padding(
@@ -74,35 +78,19 @@ class _AllPlayersState extends State<AllPlayers> {
                                 child: Column(
                                   children: [
                                     ClipRRect(
-                                        borderRadius: BorderRadius.circular(12),
-                                        child: Image.network(
-                                          players?[index].playerImage ?? "",
-                                          errorBuilder:
-                                              (context, error, stackTrace) =>
-                                                  const Icon(Icons.face),
-                                          loadingBuilder: (context, child,
-                                              loadingProgress) {
-                                            return loadingProgress == null
-                                                ? child
-                                                : CircularProgressIndicator
-                                                    .adaptive(
-                                                    value: loadingProgress
-                                                            .cumulativeBytesLoaded /
-                                                        loadingProgress
-                                                            .expectedTotalBytes!
-                                                            .toInt(),
-                                                  );
-                                          },
-                                          height: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.2,
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.3,
-                                          fit: BoxFit.contain,
-                                        )),
+                                      borderRadius: BorderRadius.circular(12),
+                                      child: AppCashedImage(
+                                        imageUrl:
+                                            players?[index].playerImage ?? "",
+                                        height:
+                                            MediaQuery.of(context).size.width *
+                                                0.2,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.3,
+                                        fit: BoxFit.contain,
+                                      ),
+                                    ),
                                     Text(players?[index].playerPosition ?? ""),
                                     Text((players?[index]
                                                 .playerNumber

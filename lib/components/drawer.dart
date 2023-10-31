@@ -1,22 +1,23 @@
 import 'dart:developer';
 
-import 'pages/club_vision.dart';
-import 'pages/survey_screen.dart';
+import 'package:enefty_icons/enefty_icons.dart';
+import 'package:expandable/expandable.dart';
+import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import '../screens/about.dart';
+import '../screens/news.dart';
 import 'pages/acadmic.dart';
 import 'pages/all_players.dart';
-
+import 'pages/board_page.dart';
+import 'pages/club_vision.dart';
 import 'pages/pageemplo.dart';
 import 'pages/pagevisit.dart';
 import 'pages/playdiff.dart';
 import 'pages/problem.dart';
-import '../screens/about.dart';
-import '../screens/news.dart';
-import 'package:flutter/material.dart';
-import 'pages/board_page.dart';
+import 'pages/shcule_sport.dart';
 import 'pages/structure_page.dart';
-import 'package:enefty_icons/enefty_icons.dart';
-import 'package:expandable/expandable.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'pages/survey_screen.dart';
 import 'pages/volunteer.dart';
 import 'pdf_screen.dart';
 
@@ -91,7 +92,7 @@ class AppDrawer extends StatelessWidget {
                     endIndent: 1, // تحديد المسافة عند النهاية
                   ),
                   const MyListTile(
-                    title: ' نبذة تاريخية',
+                    title: 'نبذة تاريخية',
                     icon: Icons.message_sharp,
                     screenName: About(),
                   ),
@@ -108,7 +109,13 @@ class AppDrawer extends StatelessWidget {
                 ],
                 Icons.sports_football,
               ),
-
+              const SizedBox(height: 8),
+              const MyListTile(
+                title: 'جدول المباريات',
+                icon: Icons.sports_volleyball_outlined,
+                screenName: Sportclander(), // بدلي الصفحات حقها بعدين
+              ),
+              const SizedBox(height: 8),
               myExpandedWidget(
                 context,
                 'المركز الاعلامي',

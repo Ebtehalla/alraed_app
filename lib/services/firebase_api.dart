@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import '../models/player_model.dart';
 
 class FirebaseApiService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -27,16 +26,5 @@ class FirebaseApiService {
     }
   }
 
-  Future<List<PlayerModel>> getAllPlayers() async {
-    CollectionReference playersCollection = _firestore.collection('players');
-    return playersCollection.get().then((snapshot) {
-      List<PlayerModel> playersList = [];
-      for (var doc in snapshot.docs) {
-        playersList
-            .add(PlayerModel.fromJson(doc.data() as Map<String, dynamic>));
-      }
-      log(playersList.toString());
-      return playersList;
-    });
-  }
+
 }

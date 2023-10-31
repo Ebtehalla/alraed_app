@@ -1,6 +1,7 @@
-import '../drawer.dart';
-import '../../services/function.dart';
 import 'package:flutter/material.dart';
+
+import '../../services/function.dart';
+import '../drawer.dart';
 
 class BoardPage extends StatefulWidget {
   const BoardPage({Key? key}) : super(key: key);

@@ -4,7 +4,7 @@ import 'dart:convert';
 class NextMatchModel {
   final int? id;
   final String? location;
-  final DateTime? time;
+  final String? time;
   final ClubModel? home;
   final ClubModel? away;
   final String? url;
@@ -20,7 +20,7 @@ class NextMatchModel {
   NextMatchModel copyWith({
     int? id,
     String? location,
-    DateTime? time,
+    String? time,
     ClubModel? home,
     ClubModel? away,
     String? url,
@@ -39,7 +39,7 @@ class NextMatchModel {
     return <String, dynamic>{
       'id': id,
       'location': location,
-      'time': time?.millisecondsSinceEpoch,
+      'time': time,
       'home': home?.toMap(),
       'away': away?.toMap(),
       'url': url,
@@ -50,9 +50,7 @@ class NextMatchModel {
     return NextMatchModel(
       id: map['id'] != null ? map['id'] as int : null,
       location: map['location'] != null ? map['location'] as String : null,
-      time: map['time'] != null
-          ? DateTime.fromMillisecondsSinceEpoch(map['time'] as int)
-          : null,
+      time: map['time'],
       home: map['home'] != null
           ? ClubModel.fromMap(map['home'] as Map<String, dynamic>)
           : null,
