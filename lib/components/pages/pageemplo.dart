@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:uuid/uuid.dart';
 
 import '../../data_sources/audience_poll_apis.dart';
@@ -8,6 +10,7 @@ import '../drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
+// ignore: must_be_immutable
 class Pageemplo extends StatelessWidget {
   final GlobalKey<FormBuilderState> _formKey = GlobalKey<FormBuilderState>();
 
@@ -57,7 +60,7 @@ class Pageemplo extends StatelessWidget {
                   ),
                   FormBuilderRadioGroup(
                     name:
-                    '  1. يقوم النادي بتوعية الموظفين وخاصة الجدد منهم باستراتيجية النادي وأنظمته وسياساته ولوائحه، باستخدام أساليب فعالة *',
+                        '  1. يقوم النادي بتوعية الموظفين وخاصة الجدد منهم باستراتيجية النادي وأنظمته وسياساته ولوائحه، باستخدام أساليب فعالة *',
                     options: const [
                       FormBuilderFieldOption(value: 'غير موافق بشدة'),
                       FormBuilderFieldOption(value: 'غير موافق'),
@@ -68,7 +71,8 @@ class Pageemplo extends StatelessWidget {
                     onSaved: (newValue) {
                       opinions.add(OpinionPoll(
                           id: 1,
-                          question: "'  1. يقوم النادي بتوعية الموظفين وخاصة الجدد منهم باستراتيجية النادي وأنظمته وسياساته ولوائحه، باستخدام أساليب فعالة *'",
+                          question:
+                              "'  1. يقوم النادي بتوعية الموظفين وخاصة الجدد منهم باستراتيجية النادي وأنظمته وسياساته ولوائحه، باستخدام أساليب فعالة *'",
                           selection: newValue ?? ""));
                     },
                   ),
@@ -94,7 +98,8 @@ class Pageemplo extends StatelessWidget {
                     onSaved: (newValue) {
                       opinions.add(OpinionPoll(
                           id: 2,
-                          question: "'2. الوصف الوظيفي للإدارات بالهيكل التنظيمي سهل وواضح'",
+                          question:
+                              "'2. الوصف الوظيفي للإدارات بالهيكل التنظيمي سهل وواضح'",
                           selection: newValue ?? ""));
                     },
                   ),
@@ -147,7 +152,8 @@ class Pageemplo extends StatelessWidget {
                     onSaved: (newValue) {
                       opinions.add(OpinionPoll(
                           id: 4,
-                          question: "'4. يقوم النادي بتطبيق كافة أنظمة عمله وسياساته ولوائحه *'",
+                          question:
+                              "'4. يقوم النادي بتطبيق كافة أنظمة عمله وسياساته ولوائحه *'",
                           selection: newValue ?? ""));
                     },
                   ),
@@ -174,7 +180,8 @@ class Pageemplo extends StatelessWidget {
                     onSaved: (newValue) {
                       opinions.add(OpinionPoll(
                           id: 5,
-                          question: "'5. إدارة النادي ملتزمة بالهيكل التنظيمي المعتمد'",
+                          question:
+                              "'5. إدارة النادي ملتزمة بالهيكل التنظيمي المعتمد'",
                           selection: newValue ?? ""));
                     },
                   ),
@@ -189,8 +196,7 @@ class Pageemplo extends StatelessWidget {
                     ),
                   ),
                   FormBuilderRadioGroup(
-                    name:
-                        '6. يوجد وصف وظيفي متكامل لوظائف الهيكل التنظيمي',
+                    name: '6. يوجد وصف وظيفي متكامل لوظائف الهيكل التنظيمي',
                     options: const [
                       FormBuilderFieldOption(value: 'راضي جداً'),
                       FormBuilderFieldOption(value: 'راضي'),
@@ -201,7 +207,8 @@ class Pageemplo extends StatelessWidget {
                     onSaved: (newValue) {
                       opinions.add(OpinionPoll(
                           id: 6,
-                          question: "'6. يوجد وصف وظيفي متكامل لوظائف الهيكل التنظيمي'",
+                          question:
+                              "'6. يوجد وصف وظيفي متكامل لوظائف الهيكل التنظيمي'",
                           selection: newValue ?? ""));
                     },
                   ),
@@ -514,33 +521,35 @@ class Pageemplo extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   ElevatedButton(
-                     onPressed: () async {
-                    // call api to post information to, if success = clear fields show success msg, false show faild msg & don't clear fields
-                    bool sent = true; // نتيجة تسليم الفورم
-                    _formKey.currentState?.save();
-                    if (_formKey.currentState?.saveAndValidate() ?? false) {
-                      print(opinions);
-                      final AudiancePoll audiancePoll = AudiancePoll(
-                          id: const Uuid().v8(), polls: opinions, message: "");
-                      await EmployeesPollApis.addMessageToFirestore(
-                              audiancePoll)
-                          .then((value) {
-                        opinions.clear();
-                        Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context) =>
-                              const HomePage(title: "", imagePath: ""),
-                        ));
-                        return ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                                content: Text("تم ارسال البيانات بنجاح")));
-                      });
-                    } else {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                            content: Text("تم ارسال البيانات بنجاح")),
-                      );
-                    }
-                  },
+                    onPressed: () async {
+                      // call api to post information to, if success = clear fields show success msg, false show faild msg & don't clear fields
+                      _formKey.currentState?.save();
+                      if (_formKey.currentState?.saveAndValidate() ?? false) {
+                        log(opinions.toString());
+                        final AudiancePoll audiancePoll = AudiancePoll(
+                            id: const Uuid().v8(),
+                            polls: opinions,
+                            message: "");
+                        await EmployeesPollApis.addMessageToFirestore(
+                                audiancePoll)
+                            .then((value) {
+                          opinions.clear();
+                          Navigator.of(context)
+                              .pushReplacement(MaterialPageRoute(
+                            builder: (context) =>
+                                const HomePage(title: "", imagePath: ""),
+                          ));
+                          return ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                  content: Text("تم ارسال البيانات بنجاح")));
+                        });
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                              content: Text("تم ارسال البيانات بنجاح")),
+                        );
+                      }
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color.fromARGB(
                           255, 55, 122, 58), // Set the desired color here

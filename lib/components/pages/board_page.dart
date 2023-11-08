@@ -1,11 +1,11 @@
-import 'package:bot_toast/bot_toast.dart';
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../data_sources/contact_us_apis.dart';
 import '../../models/contact_us_model.dart';
 import '../../screens/homepage.dart';
-import '../../services/function.dart';
 import '../../services/validator.dart';
 import '../drawer.dart';
 
@@ -22,7 +22,7 @@ class _BoardPageState extends State<BoardPage> {
   var emailController = TextEditingController();
   var subjectController = TextEditingController();
   GlobalKey<FormState> contactFormKey = GlobalKey<FormState>();
-  void _openSocialMedia(String url) async {
+  void openSocialMedia(String url) async {
   if (await canLaunchUrl(
     Uri.parse(url),
   )) {

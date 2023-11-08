@@ -235,11 +235,6 @@ class AppDrawer extends StatelessWidget {
                     icon: Icons.person_pin,
                     screenName: Volunteer(), // بدلي الصفحات حقها بعدين
                   ),
-                  MyListTile(
-                    title: 'الراغبون بالتسجيل',
-                    icon: Icons.group,
-                    screenName: Pageemplo(), // بدلي الصفحات حقها بعدين
-                  ),
                 ],
                 EneftyIcons.note_2_outline,
               ),

@@ -1,3 +1,7 @@
+// ignore_for_file: must_be_immutable
+
+import 'dart:developer';
+
 import 'package:uuid/uuid.dart';
 
 import '../../data_sources/audience_poll_apis.dart';
@@ -12,7 +16,7 @@ class Pagevisit extends StatelessWidget {
   final GlobalKey<FormBuilderState> _formKey = GlobalKey<FormBuilderState>();
 
   Pagevisit({Key? key}) : super(key: key);
-    List<OpinionPoll> opinions = [];
+  List<OpinionPoll> opinions = [];
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +62,8 @@ class Pagevisit extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 17, // تحديد حجم النص هنا
                       fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(139, 124, 40, 40), // تحديد لون النص ه
+                      color:
+                          Color.fromARGB(139, 124, 40, 40), // تحديد لون النص ه
                     ),
                   ),
                   FormBuilderRadioGroup(
@@ -83,7 +88,8 @@ class Pagevisit extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 17, // تحديد حجم النص هنا
                       fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(139, 124, 40, 40), // تحديد لون النص ه
+                      color:
+                          Color.fromARGB(139, 124, 40, 40), // تحديد لون النص ه
                     ),
                   ),
                   FormBuilderRadioGroup(
@@ -98,7 +104,8 @@ class Pagevisit extends StatelessWidget {
                     onSaved: (newValue) {
                       opinions.add(OpinionPoll(
                           id: 2,
-                          question: "'2. .يوجد في منشأة النادي مسبح قانوني ومميز'",
+                          question:
+                              "'2. .يوجد في منشأة النادي مسبح قانوني ومميز'",
                           selection: newValue ?? ""));
                     },
                   ),
@@ -108,7 +115,8 @@ class Pagevisit extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 17, // تحديد حجم النص هنا
                       fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(139, 124, 40, 40), // تحديد لون النص ه
+                      color:
+                          Color.fromARGB(139, 124, 40, 40), // تحديد لون النص ه
                     ),
                   ),
                   FormBuilderRadioGroup(
@@ -124,7 +132,8 @@ class Pagevisit extends StatelessWidget {
                     onSaved: (newValue) {
                       opinions.add(OpinionPoll(
                           id: 3,
-                          question: "'3. يوجد في منشأة النادي مبنى إداري مهيأ وفيه جميع التجهيزات'",
+                          question:
+                              "'3. يوجد في منشأة النادي مبنى إداري مهيأ وفيه جميع التجهيزات'",
                           selection: newValue ?? ""));
                     },
                   ),
@@ -134,7 +143,8 @@ class Pagevisit extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 17, // تحديد حجم النص هنا
                       fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(139, 124, 40, 40), // تحديد لون النص ه
+                      color:
+                          Color.fromARGB(139, 124, 40, 40), // تحديد لون النص ه
                     ),
                   ),
                   FormBuilderRadioGroup(
@@ -149,7 +159,8 @@ class Pagevisit extends StatelessWidget {
                     onSaved: (newValue) {
                       opinions.add(OpinionPoll(
                           id: 4,
-                          question: "'4. .يوجد لوحات توعوية للمحافظة على مرافق النادي'",
+                          question:
+                              "'4. .يوجد لوحات توعوية للمحافظة على مرافق النادي'",
                           selection: newValue ?? ""));
                     },
                   ),
@@ -159,7 +170,8 @@ class Pagevisit extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 17, // تحديد حجم النص هنا
                       fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(139, 124, 40, 40), // تحديد لون النص ه
+                      color:
+                          Color.fromARGB(139, 124, 40, 40), // تحديد لون النص ه
                     ),
                   ),
                   FormBuilderRadioGroup(
@@ -174,7 +186,8 @@ class Pagevisit extends StatelessWidget {
                     onSaved: (newValue) {
                       opinions.add(OpinionPoll(
                           id: 5,
-                          question: "'5.دورات المياة بمنشأة النادي كافية ونظيفة'",
+                          question:
+                              "'5.دورات المياة بمنشأة النادي كافية ونظيفة'",
                           selection: newValue ?? ""));
                     },
                   ),
@@ -184,7 +197,8 @@ class Pagevisit extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 17, // تحديد حجم النص هنا
                       fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(139, 124, 40, 40), // تحديد لون النص ه
+                      color:
+                          Color.fromARGB(139, 124, 40, 40), // تحديد لون النص ه
                     ),
                   ),
                   FormBuilderRadioGroup(
@@ -199,7 +213,8 @@ class Pagevisit extends StatelessWidget {
                     onSaved: (newValue) {
                       opinions.add(OpinionPoll(
                           id: 6,
-                          question: "'6. يوجد بمنشأة النادي أماكن لجلوس الزوار'",
+                          question:
+                              "'6. يوجد بمنشأة النادي أماكن لجلوس الزوار'",
                           selection: newValue ?? ""));
                     },
                   ),
@@ -209,7 +224,8 @@ class Pagevisit extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 17, // تحديد حجم النص هنا
                       fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(139, 124, 40, 40), // تحديد لون النص ه
+                      color:
+                          Color.fromARGB(139, 124, 40, 40), // تحديد لون النص ه
                     ),
                   ),
                   FormBuilderRadioGroup(
@@ -225,7 +241,8 @@ class Pagevisit extends StatelessWidget {
                     onSaved: (newValue) {
                       opinions.add(OpinionPoll(
                           id: 1,
-                          question: "'7..أدوات السلامة في منشأة النادي متوفرة في اماكن واضحة '",
+                          question:
+                              "'7..أدوات السلامة في منشأة النادي متوفرة في اماكن واضحة '",
                           selection: newValue ?? ""));
                     },
                   ),
@@ -235,7 +252,8 @@ class Pagevisit extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 17, // تحديد حجم النص هنا
                       fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(139, 124, 40, 40), // تحديد لون النص ه
+                      color:
+                          Color.fromARGB(139, 124, 40, 40), // تحديد لون النص ه
                     ),
                   ),
                   FormBuilderRadioGroup(
@@ -250,7 +268,8 @@ class Pagevisit extends StatelessWidget {
                     onSaved: (newValue) {
                       opinions.add(OpinionPoll(
                           id: 8,
-                          question: "'8.الأجهزة الطبية بصالة العلاج الطبيعي جيدة'",
+                          question:
+                              "'8.الأجهزة الطبية بصالة العلاج الطبيعي جيدة'",
                           selection: newValue ?? ""));
                     },
                   ),
@@ -260,7 +279,8 @@ class Pagevisit extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 17, // تحديد حجم النص هنا
                       fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(139, 124, 40, 40), // تحديد لون النص ه
+                      color:
+                          Color.fromARGB(139, 124, 40, 40), // تحديد لون النص ه
                     ),
                   ),
                   FormBuilderRadioGroup(
@@ -276,7 +296,8 @@ class Pagevisit extends StatelessWidget {
                     onSaved: (newValue) {
                       opinions.add(OpinionPoll(
                           id: 9,
-                          question: "'9. صيانة مرافق منشأة النادي والحفاظ عليها واضح لزوار النادي'",
+                          question:
+                              "'9. صيانة مرافق منشأة النادي والحفاظ عليها واضح لزوار النادي'",
                           selection: newValue ?? ""));
                     },
                   ),
@@ -286,7 +307,8 @@ class Pagevisit extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 17, // تحديد حجم النص هنا
                       fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(139, 124, 40, 40), // تحديد لون النص ه
+                      color:
+                          Color.fromARGB(139, 124, 40, 40), // تحديد لون النص ه
                     ),
                   ),
                   FormBuilderRadioGroup(
@@ -301,7 +323,8 @@ class Pagevisit extends StatelessWidget {
                     onSaved: (newValue) {
                       opinions.add(OpinionPoll(
                           id: 10,
-                          question: "'10.صالة الألعاب المغطاة بمنشأة النادي مميزة'",
+                          question:
+                              "'10.صالة الألعاب المغطاة بمنشأة النادي مميزة'",
                           selection: newValue ?? ""));
                     },
                   ),
@@ -315,7 +338,6 @@ class Pagevisit extends StatelessWidget {
                     ),
                   ),
                   FormBuilderTextField(
-                    
                     name:
                         'أيّ تعليقات أو ملحوظات أو اقتراحات يمكن إضافتها حول مرافق النادي',
                     maxLines: 3,
@@ -323,53 +345,49 @@ class Pagevisit extends StatelessWidget {
                       labelText: 'مقترحات',
                       border: OutlineInputBorder(),
                     ),
-                    
                   ),
                   const SizedBox(height: 20),
-                  Center(
-                    child: ElevatedButton(
-                     onPressed: () async {
-                        // call api to post information to, if success = clear fields show success msg, false show faild msg & don't clear fields
-                        bool sent = true; // نتيجة تسليم الفورم
-                        _formKey.currentState?.save();
-                        if (_formKey.currentState?.saveAndValidate() ?? false) {
-                          print(opinions);
-                          final AudiancePoll audiancePoll = AudiancePoll(
-                              id: const Uuid().v8(),
-                              polls: opinions,
-                              message: "");
-                          await AudiencePollApis.addMessageToFirestore(
-                                  audiancePoll)
-                              .then((value) {
-                            opinions.clear();
-                            Navigator.of(context)
-                                .pushReplacement(MaterialPageRoute(
-                              builder: (context) =>
-                                  const HomePage(title: "", imagePath: ""),
-                            ));
-                            return ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                    content: Text("تم ارسال البيانات بنجاح")));
-                          });
-                        } else {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                                content: Text("تم ارسال البيانات بنجاح")),
-                          );
-                        }
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color.fromARGB(
-                            255, 55, 122, 58), // Set the desired color here
-                        shape: const StadiumBorder(),
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 16,
-                            horizontal: 20), // Adjust the padding here
-                        textStyle: const TextStyle(
-                            fontSize: 18), // Adjust the font size here
-                      ),
-                      child: const Text('إرسال'),
+                  ElevatedButton(
+                    onPressed: () async {
+                      // call api to post information to, if success = clear fields show success msg, false show faild msg & don't clear fields
+                      _formKey.currentState?.save();
+                      if (_formKey.currentState?.saveAndValidate() ?? false) {
+                        log(opinions.toString());
+                        final AudiancePoll audiancePoll = AudiancePoll(
+                            id: const Uuid().v8(),
+                            polls: opinions,
+                            message: "");
+                        await AudiencePollApis.addMessageToFirestore(
+                                audiancePoll)
+                            .then((value) {
+                          opinions.clear();
+                          Navigator.of(context)
+                              .pushReplacement(MaterialPageRoute(
+                            builder: (context) =>
+                                const HomePage(title: "", imagePath: ""),
+                          ));
+                          return ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                  content: Text("تم ارسال البيانات بنجاح")));
+                        });
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                              content: Text("تم ارسال البيانات بنجاح")),
+                        );
+                      }
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor:
+                          Colors.black54, // Set the desired color here
+                      shape: const StadiumBorder(),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 16,
+                          horizontal: 20), // Adjust the padding here
+                      textStyle: const TextStyle(
+                          fontSize: 18), // Adjust the font size here
                     ),
+                    child: Container(),
                   ),
                   const SizedBox(height: 16),
                 ],

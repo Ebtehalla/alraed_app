@@ -1,3 +1,7 @@
+// ignore_for_file: must_be_immutable
+
+import 'dart:developer';
+
 import 'package:uuid/uuid.dart';
 
 import '../../data_sources/audience_poll_apis.dart';
@@ -420,10 +424,9 @@ class SurveyScreen extends StatelessWidget {
                   ElevatedButton(
                     onPressed: () async {
                       // call api to post information to, if success = clear fields show success msg, false show faild msg & don't clear fields
-                      bool sent = true; // نتيجة تسليم الفورم
                       _formKey.currentState?.save();
                       if (_formKey.currentState?.saveAndValidate() ?? false) {
-                        print(opinions);
+                        log(opinions.toString());
                         final AudiancePoll audiancePoll = AudiancePoll(
                             id: const Uuid().v8(),
                             polls: opinions,

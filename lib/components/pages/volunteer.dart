@@ -9,6 +9,41 @@ class Volunteer extends StatefulWidget {
 }
 
 class _VolunteerState extends State<Volunteer> {
+  String? gender;
+  onChangeGender(String val) {
+    setState(() {
+      gender = val;
+    });
+  }
+
+  String? bac;
+  onChangebac(String val) {
+    setState(() {
+      bac = val;
+    });
+  }
+
+  String? jobType;
+  onChangejobType(String val) {
+    setState(() {
+      jobType = val;
+    });
+  }
+
+  String? joinType;
+  onChangejoinType(String val) {
+    setState(() {
+      joinType = val;
+    });
+  }
+
+  String? voluTime;
+  onChangevoluTime(String val) {
+    setState(() {
+      voluTime = val;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -197,7 +232,7 @@ class _VolunteerState extends State<Volunteer> {
                               );
                             }).toList(),
                             onChanged: (String? newValue) {
-                              // You can use the newValue here
+                              onChangeGender(newValue ?? "");
                             },
                           ),
                         ),
@@ -243,7 +278,7 @@ class _VolunteerState extends State<Volunteer> {
                               );
                             }).toList(),
                             onChanged: (String? newValue) {
-                              // You can use the newValue here
+                              onChangebac(newValue ?? "");
                             },
                           ),
                         ),
@@ -288,7 +323,7 @@ class _VolunteerState extends State<Volunteer> {
                               );
                             }).toList(),
                             onChanged: (String? newValue) {
-                              // You can use the newValue here
+                              onChangejobType(newValue ?? "");
                             },
                           ),
                         ),
@@ -329,7 +364,7 @@ class _VolunteerState extends State<Volunteer> {
                               );
                             }).toList(),
                             onChanged: (String? newValue) {
-                              // You can use the newValue here
+                              onChangejoinType(newValue ?? "");
                             },
                           ),
                         ),
@@ -374,7 +409,7 @@ class _VolunteerState extends State<Volunteer> {
                               );
                             }).toList(),
                             onChanged: (String? newValue) {
-                              // You can use the newValue here
+                              onChangevoluTime(newValue ?? "");
                             },
                           ),
                         ),
