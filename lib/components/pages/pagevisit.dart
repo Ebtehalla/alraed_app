@@ -326,47 +326,50 @@ class Pagevisit extends StatelessWidget {
                     
                   ),
                   const SizedBox(height: 20),
-                  ElevatedButton(
-                   onPressed: () async {
-                      // call api to post information to, if success = clear fields show success msg, false show faild msg & don't clear fields
-                      bool sent = true; // نتيجة تسليم الفورم
-                      _formKey.currentState?.save();
-                      if (_formKey.currentState?.saveAndValidate() ?? false) {
-                        print(opinions);
-                        final AudiancePoll audiancePoll = AudiancePoll(
-                            id: const Uuid().v8(),
-                            polls: opinions,
-                            message: "");
-                        await AudiencePollApis.addMessageToFirestore(
-                                audiancePoll)
-                            .then((value) {
-                          opinions.clear();
-                          Navigator.of(context)
-                              .pushReplacement(MaterialPageRoute(
-                            builder: (context) =>
-                                const HomePage(title: "", imagePath: ""),
-                          ));
-                          return ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                  content: Text("تم ارسال البيانات بنجاح")));
-                        });
-                      } else {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                              content: Text("تم ارسال البيانات بنجاح")),
-                        );
-                      }
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.black54, // Set the desired color here
-                      shape: const StadiumBorder(),
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 16,
-                          horizontal: 20), // Adjust the padding here
-                      textStyle: const TextStyle(
-                          fontSize: 18), // Adjust the font size here
+                  Center(
+                    child: ElevatedButton(
+                     onPressed: () async {
+                        // call api to post information to, if success = clear fields show success msg, false show faild msg & don't clear fields
+                        bool sent = true; // نتيجة تسليم الفورم
+                        _formKey.currentState?.save();
+                        if (_formKey.currentState?.saveAndValidate() ?? false) {
+                          print(opinions);
+                          final AudiancePoll audiancePoll = AudiancePoll(
+                              id: const Uuid().v8(),
+                              polls: opinions,
+                              message: "");
+                          await AudiencePollApis.addMessageToFirestore(
+                                  audiancePoll)
+                              .then((value) {
+                            opinions.clear();
+                            Navigator.of(context)
+                                .pushReplacement(MaterialPageRoute(
+                              builder: (context) =>
+                                  const HomePage(title: "", imagePath: ""),
+                            ));
+                            return ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                    content: Text("تم ارسال البيانات بنجاح")));
+                          });
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                                content: Text("تم ارسال البيانات بنجاح")),
+                          );
+                        }
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color.fromARGB(
+                            255, 55, 122, 58), // Set the desired color here
+                        shape: const StadiumBorder(),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 16,
+                            horizontal: 20), // Adjust the padding here
+                        textStyle: const TextStyle(
+                            fontSize: 18), // Adjust the font size here
+                      ),
+                      child: const Text('إرسال'),
                     ),
-                    child: const Text('إرسال'),
                   ),
                   const SizedBox(height: 16),
                 ],
