@@ -98,7 +98,7 @@ class _PdfScreenState extends State<PdfScreen> {
           defaultPage: _currentPage,
           swipeHorizontal: true,
           onError: (e) {
-            BotToast.showText(text: e);
+        //    BotToast.showText(text: e);
           },
           onRender: (pages) {
             setState(() {
