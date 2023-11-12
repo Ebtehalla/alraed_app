@@ -50,6 +50,8 @@ class _NewsPageState extends State<NewsPage> {
                   return MyNewsCard(
                     title: map['title'],
                     img: map['img'],
+                          category: map['category'],
+                          content: map['content'],
                   );
                 },
               );

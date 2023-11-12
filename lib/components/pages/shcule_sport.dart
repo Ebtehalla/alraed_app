@@ -151,7 +151,7 @@ class _SportclanderState extends State<Sportclander> {
                             width: double.infinity,
                             height: 40,
                             decoration: BoxDecoration(
-                              color: const Color.fromARGB(255, 24, 90, 57),
+                              color: const Color.black,
                               borderRadius: BorderRadius.circular(10),
                               boxShadow: [
                                 BoxShadow(
@@ -163,7 +163,7 @@ class _SportclanderState extends State<Sportclander> {
                             ),
                             child: const Center(
                               child: Text(
-                                "الدوري الممتاز",
+                                " دوري روشن السعودي",
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 14,

@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
 
 class FullNews extends StatefulWidget {
-  final String title;
+
+   final String title;
+  final String category;
   final String img;
+  final String content;
+  final String time;
   const FullNews({
     super.key,
-    required this.title,
+    
+     required this.title,
+    required this.category,
     required this.img,
+    required this.content,
+    required this.time,
   });
 
   @override

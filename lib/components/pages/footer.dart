@@ -15,7 +15,7 @@ class _FooterState extends State<Footer> {
       alignment: Alignment.centerRight,
       padding: const EdgeInsets.all(12),
       margin: const EdgeInsets.symmetric(vertical: 8),
-      
+        
       color: Colors.white,
       child: Column(
         children: [
