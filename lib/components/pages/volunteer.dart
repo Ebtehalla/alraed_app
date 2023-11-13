@@ -1,6 +1,8 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../data_sources/Volunteer_apis.dart';
+import '../../data_sources/volunteer_apis.dart';
 import '../../models/Volunteer_model.dart';
 import '../../screens/homepage.dart';
 import '../../services/validator.dart';
@@ -33,7 +35,7 @@ class _VolunteerState extends State<Volunteer> {
     }
   }
 
-  Future Volunteer({
+  Future volunteer({
     required String name,
     required String email,
     required String phone,
@@ -284,7 +286,7 @@ class _VolunteerState extends State<Volunteer> {
                                   'الجنس',
                                   textAlign: TextAlign
                                       .right, // تحديد اتجاه النص إلى اليمين
-        
+
                                   style: TextStyle(
                                       fontSize: 13,
                                       fontWeight: FontWeight.bold,
@@ -299,8 +301,8 @@ class _VolunteerState extends State<Volunteer> {
                                       borderRadius: BorderRadius.circular(20),
                                     ),
                                   ),
-                                  items:
-                                      <String>['ذكر', 'أنثى'].map((String value) {
+                                  items: <String>['ذكر', 'أنثى']
+                                      .map((String value) {
                                     return DropdownMenuItem<String>(
                                       value: value,
                                       child: Text(value),
@@ -323,7 +325,7 @@ class _VolunteerState extends State<Volunteer> {
                                   'أخر مؤهل دراسي',
                                   textAlign: TextAlign
                                       .right, // تحديد اتجاه النص إلى اليمين
-        
+
                                   style: TextStyle(
                                       fontSize: 13,
                                       fontWeight: FontWeight.bold,
@@ -369,7 +371,7 @@ class _VolunteerState extends State<Volunteer> {
                                   'نوع العمل التطوعي',
                                   textAlign: TextAlign
                                       .right, // تحديد اتجاه النص إلى اليمين
-        
+
                                   style: TextStyle(
                                       fontSize: 13,
                                       fontWeight: FontWeight.bold,
@@ -414,7 +416,7 @@ class _VolunteerState extends State<Volunteer> {
                                   'نوع المشاركة',
                                   textAlign: TextAlign
                                       .right, // تحديد اتجاه النص إلى اليمين
-        
+
                                   style: TextStyle(
                                       fontSize: 13,
                                       fontWeight: FontWeight.bold,
@@ -455,7 +457,7 @@ class _VolunteerState extends State<Volunteer> {
                                   'أوقات التطوع',
                                   textAlign: TextAlign
                                       .right, // تحديد اتجاه النص إلى اليمين
-        
+
                                   style: TextStyle(
                                       fontSize: 13,
                                       fontWeight: FontWeight.bold,
@@ -499,7 +501,7 @@ class _VolunteerState extends State<Volunteer> {
                                   jobType != null &&
                                   joinType != null &&
                                   voluTime != null) {
-                                Volunteer(
+                                volunteer(
                                   name: fullNameController.text,
                                   email: phoneNumberController.text,
                                   phone: emailController.text,

@@ -1,10 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 
 import '../components/coming_match.dart';
 import '../components/drawer.dart';
 import '../components/footer.dart';
-import 'package:flutter/material.dart';
 import '../components/network_image.dart';
 import '../components/pages/players_cards.dart';
 import '../services/firebase_api.dart';

@@ -1,5 +1,6 @@
-import '../drawer.dart';
 import 'package:flutter/material.dart';
+
+import '../drawer.dart';
 
 class Goalsclub extends StatefulWidget {
   const Goalsclub({super.key});

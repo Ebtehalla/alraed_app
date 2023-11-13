@@ -1,5 +1,6 @@
-import '../services/function.dart';
 import 'package:flutter/material.dart';
+
+import '../services/function.dart';
 
 class Footer extends StatefulWidget {
   const Footer({super.key});

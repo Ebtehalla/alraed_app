@@ -1,12 +1,10 @@
-import 'network_image.dart';
-
-import '../models/next_match_model.dart';
-
 import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../data_sources/next_match_api.dart';
+import '../models/next_match_model.dart';
+import 'network_image.dart';
 
 class UpComingMatch extends StatefulWidget {
   const UpComingMatch({super.key});

@@ -1,14 +1,21 @@
-import '../screens/news_full_information.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
+import '../screens/news_full_information.dart';
 
 class MyNewsCard extends StatefulWidget {
   final String title;
   final String img;
+    final String category;
+  final String content;  final String time;
+
   const MyNewsCard({
-    super.key,
+    Key? key,
     required this.title,
     required this.img,
-  });
+    required this.category,
+    required this.content, required this.time,
+  }) : super(key: key);
 
   @override
   State<MyNewsCard> createState() => _MyNewsCardState();
@@ -83,6 +90,9 @@ class _MyNewsCardState extends State<MyNewsCard> {
                           builder: (context) => FullNews(
                             img: widget.img,
                             title: widget.title,
+                            category: widget.category,
+                            content: widget.content,
+                            time: widget.time,
                           ),
                         ),
                       );

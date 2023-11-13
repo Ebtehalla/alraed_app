@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:alradi_app/models/problems_model.dart';
+import '../models/problems_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 

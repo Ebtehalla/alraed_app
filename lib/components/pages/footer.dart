@@ -1,4 +1,4 @@
-import '../services/function.dart';
+import '../../services/function.dart';
 import 'package:flutter/material.dart';
 
 class Footer extends StatefulWidget {
