@@ -45,17 +45,17 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyD_88r8btaxRaHjWtn0M7iAePwSOq6ZXMg',
-    appId: '1:678557577625:web:4052ea5cbe105bca2da308',
+    appId: '1:678557577625:web:bab3db8ec9a44b1c2da308',
     messagingSenderId: '678557577625',
     projectId: 'alraedclub-6d192',
     authDomain: 'alraedclub-6d192.firebaseapp.com',
     storageBucket: 'alraedclub-6d192.appspot.com',
-    measurementId: 'G-CSNTXX079W',
+    measurementId: 'G-HW0F0ZKNX8',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyA-pDuT-dJkcP3YQLYBRZlO3EUr8GTz5rE',
-    appId: '1:678557577625:android:c558eb0ca7c5d5272da308',
+    appId: '1:678557577625:android:0b0203d846e5eb252da308',
     messagingSenderId: '678557577625',
     projectId: 'alraedclub-6d192',
     storageBucket: 'alraedclub-6d192.appspot.com',
@@ -63,19 +63,19 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyA6ik_9JjkR8P5FexWI6N5HUmxDW-qfM0A',
-    appId: '1:678557577625:ios:867e1219654f39542da308',
+    appId: '1:678557577625:ios:c45f27e802ff2da62da308',
     messagingSenderId: '678557577625',
     projectId: 'alraedclub-6d192',
     storageBucket: 'alraedclub-6d192.appspot.com',
-    iosBundleId: 'com.example.alradiApp',
+    iosBundleId: 'com.alradiApp.mhmd',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyA6ik_9JjkR8P5FexWI6N5HUmxDW-qfM0A',
-    appId: '1:678557577625:ios:98f2b6ff95d7b5fe2da308',
+    appId: '1:678557577625:ios:6c7a0e3b28783ac22da308',
     messagingSenderId: '678557577625',
     projectId: 'alraedclub-6d192',
     storageBucket: 'alraedclub-6d192.appspot.com',
-    iosBundleId: 'com.example.alradiApp.RunnerTests',
+    iosBundleId: 'com.alradiApp.mhmd.RunnerTests',
   );
 }

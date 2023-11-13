@@ -1,6 +1,8 @@
-import 'package:alradi_app/components/drawer.dart';
-import 'package:alradi_app/components/news_card.dart';
-import 'package:alradi_app/services/firebaseApi.dart';
+import 'dart:developer';
+
+import '../components/drawer.dart';
+import '../components/news_card.dart';
+import '../services/firebase_api.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -12,15 +14,6 @@ class NewsPage extends StatefulWidget {
 }
 
 class _NewsPageState extends State<NewsPage> {
-  var temp;
-  String loaded = '0';
-
-  Future getdata() {
-    print('loaded');
-    temp += temp;
-    return (temp);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,45 +33,28 @@ class _NewsPageState extends State<NewsPage> {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: FutureBuilder(
-            future: temp is List<DocumentSnapshot>
-                ? getdata()
-                : FirebaseApi().getData('news'),
+            future: FirebaseApiService().getData('news'),
             builder: (context, snapshot) {
               if (snapshot.hasData == false) {
                 return const Center(
                   child: RefreshProgressIndicator(),
                 );
               }
-
               var news = snapshot.data as List<DocumentSnapshot>;
-              temp = news;
-              print(temp is List<DocumentSnapshot>);
-              // الحين اذا الغبي هذا ترو ليش مايطبع لي loaded الي هنا
-              return Column(
-                children: [
-                  Expanded(
-                    child: ListView.builder(
-                      itemCount: news.length,
-                      itemBuilder: (context, index) {
-                        var item = news[index].data() as Map<dynamic, dynamic>;
-                        Map<String, dynamic> map = Map.from(item);
-                        DateTime dateTime = map['time'].toDate();
-                        String year = dateTime.year.toString();
-                        String month = dateTime.month.toString();
-                        String day = dateTime.day.toString();
-                        String _dateTime = '$year-$month-$day';
-                        print(map['img']);
-                        return MyNewsCard(
-                          title: map['title'],
-                          category: map['category'],
-                          img: map['img'],
-                          content: map['content'],
-                          time: _dateTime,
-                        );
-                      },
-                    ),
-                  ),
-                ],
+              return ListView.builder(
+                itemCount: news.length,
+                itemBuilder: (context, index) {
+                  var item = news[index].data() as Map<dynamic, dynamic>;
+                  Map<String, dynamic> map = Map.from(item);
+                  log(map['img']);
+                  return MyNewsCard(
+                    title: map['title'],
+                    img: map['img'],
+                    category: map['category'],
+                    content: map['content'],
+                    time: map['time'].toString(),
+                  );
+                },
               );
             },
           ),

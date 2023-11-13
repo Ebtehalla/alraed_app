@@ -1,14 +1,16 @@
-import 'package:alradi_app/components/drawer.dart';
 import 'package:flutter/material.dart';
 
-class goalsclub extends StatefulWidget {
-  const goalsclub({Key? key});
+import '../drawer.dart';
+
+class Goalsclub extends StatefulWidget {
+  const Goalsclub({super.key});
 
   @override
-  _goalsclubState createState() => _goalsclubState();
+  // ignore: library_private_types_in_public_api
+  _GoalsclubState createState() => _GoalsclubState();
 }
 
-class _goalsclubState extends State<goalsclub> {
+class _GoalsclubState extends State<Goalsclub> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

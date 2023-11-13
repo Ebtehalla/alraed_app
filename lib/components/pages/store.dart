@@ -1,24 +1,17 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:alradi_app/components/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class store extends StatefulWidget {
-  const store({Key? key}) : super(key: key);
+class Store extends StatefulWidget {
+  const Store({Key? key}) : super(key: key);
 
   @override
-  State<store> createState() => _storeState();
+  State<Store> createState() => _StoreState();
 }
 
-class _storeState extends State<store> {
-  void openBrowser() async {
-    const url = 'https://store.alraedclub.sa/';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
-
+class _StoreState extends State<Store> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +35,14 @@ class _storeState extends State<store> {
       drawer: AppDrawer(),
       body: Center(
         child: ElevatedButton(
-          onPressed: openBrowser,
+          onPressed: () async {
+            const url = 'https://store.alraedclub.sa/';
+            if (await canLaunchUrl(Uri.parse(url))) {
+              await launchUrl(Uri.parse(url));
+            } else {
+              throw 'Could not launch $url';
+            }
+          },
           style: ElevatedButton.styleFrom(
             backgroundColor:
                 Color.fromARGB(255, 137, 42, 35), // تغيير لون الخلفية هنا

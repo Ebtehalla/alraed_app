@@ -1,19 +1,19 @@
-import 'package:alradi_app/components/drawer.dart';
+import '../drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class document extends StatefulWidget {
-  const document({Key? key}) : super(key: key);
+class Document extends StatefulWidget {
+  const Document({Key? key}) : super(key: key);
 
   @override
-  State<document> createState() => _documentState();
+  State<Document> createState() => _DocumentState();
 }
 
-class _documentState extends State<document> {
+class _DocumentState extends State<Document> {
   void openBrowser() async {
     const url = 'https://www.alraedclub.sa/site/img/wathika.pdf';
-    if (await canLaunch(url)) {
-      await launch(url);
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrl(Uri.parse(url));
     } else {
       throw 'Could not launch $url';
     }
@@ -45,7 +45,7 @@ class _documentState extends State<document> {
           onPressed: openBrowser,
           style: ElevatedButton.styleFrom(
             backgroundColor:
-                Color.fromARGB(255, 137, 42, 35), // تغيير لون الخلفية هنا
+                const Color.fromARGB(255, 137, 42, 35), // تغيير لون الخلفية هنا
           ),
           child: const Text('وثيقة الخطة الإستراتيجية لنادي الرائد'),
         ),

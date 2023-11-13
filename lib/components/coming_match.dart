@@ -1,6 +1,10 @@
-import 'package:alradi_app/services/firebaseApi.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
+import '../data_sources/next_match_api.dart';
+import '../models/next_match_model.dart';
+import 'network_image.dart';
 
 class UpComingMatch extends StatefulWidget {
   const UpComingMatch({super.key});
@@ -10,111 +14,150 @@ class UpComingMatch extends StatefulWidget {
 }
 
 class _UpComingMatchState extends State<UpComingMatch> {
-  var temp;
-  String loaded = '0';
-
-  Future getdata() {
-    print('loaded');
-    temp += temp;
-    return (temp);
-  }
-
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-        future: temp is List<DocumentSnapshot>
-            ? getdata()
-            : FirebaseApi().getData('match'),
-        builder: (context, snapshot) {
-          if (snapshot.hasData == false) {
-            return const Center(
-              child: RefreshProgressIndicator(),
-            );
-          }
-          var match = snapshot.data as List<DocumentSnapshot>;
-          temp = match[0].data();
-          DateTime dateTime = temp['time'].toDate();
-          String year = dateTime.year.toString();
-          String month = dateTime.month.toString();
-          String day = dateTime.day.toString();
-          String hour = dateTime.hour.toString();
-          String min = dateTime.minute.toString();
-          if (min.length == 1) {
-            min = '0$min';
-          }
-          String _dateTime = '$year-$month-$day  $hour:$min';
-          return Container(
-            margin: const EdgeInsets.all(20),
-            padding: const EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              color: Colors.grey.shade100,
-            ),
+    return FutureBuilder<NextMatchModel?>(
+      future: NextMatchDataSources().getNextMatch(),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          final NextMatchModel? match = snapshot.data;
+          return Padding(
+            padding: const EdgeInsets.all(5.0),
             child: Column(
               children: [
-                // صوره الفريقين
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Column(
-                      children: [
-                        SizedBox(
-                          width: MediaQuery.of(context).size.shortestSide * 0.2,
-                          height:
-                              MediaQuery.of(context).size.shortestSide * 0.2,
-                          child: Image.asset('assets/logo.png'),
-                        ),
-                        const Text(
-                          'الرائد',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w900,
-                          ),
+                const SizedBox(height: 18.0),
+                Center(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: const BorderRadius.all(Radius.circular(20)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(.2),
+                          spreadRadius: 2,
+                          blurRadius: 5,
+                          offset: const Offset(1, 2),
                         ),
                       ],
                     ),
-                    Column(
-                      children: [
-                        const Text(
-                          'VS',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w900,
+                    width:
+                        MediaQuery.of(context).size.width, // تغيير عرض الحاوية
+                    child: Center(
+                      child: Column(
+                        children: [
+                          const Center(
+                            child: Text(
+                              'المباراة القادمة',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              ),
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          _dateTime,
-                          style: const TextStyle(
-                            fontSize: 12,
-                            color: Colors.black45,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              AppCashedImage(
+                                imageUrl: match?.away?.image ?? "",
+                                height: 100,
+                                width: 50,
+                                fit: BoxFit.contain,
+                              ),
+                              Text(match?.away?.name ?? ""),
+                              const SizedBox(width: 30),
+                              const Center(
+                                child: Text(
+                                  'vs',
+                                  style: TextStyle(
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(width: 20),
+                              Column(
+                                children: [
+                                  AppCashedImage(
+                                    imageUrl: match?.home?.image ?? "",
+                                    height: 100,
+                                    width: 50,
+                                    fit: BoxFit.contain,
+                                  ),
+                                  Text(match?.home?.name ?? ""),
+                                ],
+                              ),
+                            ],
                           ),
-                        )
-                      ],
+                          const Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 12),
+                            child: Divider(),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Column(
+                                children: [
+                                  const Row(
+                                    children: [
+                                      Text(
+                                        'الموعد',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w600),
+                                      ),
+                                      SizedBox(width: 2),
+                                      Icon(EneftyIcons.clock_2_outline),
+                                    ],
+                                  ),
+                                  Text(
+                                    timeAndDateFormate(date: match?.time),
+                                  )
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  const Row(
+                                    children: [
+                                      Text(
+                                        'المكان',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      SizedBox(width: 2),
+                                      Icon(EneftyIcons.location_outline),
+                                    ],
+                                  ),
+                                  Text(match?.location ?? ""),
+                                ],
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
-                    Column(
-                      children: [
-                        SizedBox(
-                          width: MediaQuery.of(context).size.shortestSide * 0.2,
-                          height:
-                              MediaQuery.of(context).size.shortestSide * 0.2,
-                          child: Image.network(temp['img']),
-                        ),
-                        Text(
-                          temp['team'],
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w900,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+                  ),
                 ),
-                // معلومات مثل الوقت والكان الخ..
               ],
             ),
           );
-        });
+        } else {
+          return SizedBox(
+            height: MediaQuery.of(context).size.height / 4,
+            child: const Center(
+              child: CircularProgressIndicator.adaptive(),
+            ),
+          );
+        }
+      },
+    );
   }
+}
+
+String timeAndDateFormate({String? date}) {
+  String pattern = "yyyy-MM-dd hh:mm";
+  var format = DateFormat(pattern);
+  var dateString =
+      format.format(DateTime.tryParse(date ?? "") ?? DateTime.now());
+  return dateString;
 }

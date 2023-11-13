@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:678557577625:android:c558eb0ca7c5d5272da308",
+        "mobilesdk_app_id": "1:678557577625:android:0b0203d846e5eb252da308",
         "android_client_info": {
-          "package_name": "com.example.alradi_app"
+          "package_name": "com.elmarakby.elraed"
         }
       },
       "oauth_client": [],

@@ -1,4 +1,4 @@
-import 'package:alradi_app/components/drawer.dart';
+import '../components/drawer.dart';
 import 'package:flutter/material.dart';
 
 class About extends StatelessWidget {
@@ -8,7 +8,7 @@ class About extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(232, 186, 47, 47),
+        backgroundColor: const Color.fromARGB(232, 186, 47, 47),
         title: const Text('نبذة تاريخية عن الرائد'),
         centerTitle: true,
       ),

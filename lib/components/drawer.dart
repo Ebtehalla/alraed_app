@@ -1,24 +1,25 @@
-import 'package:alradi_app/components/pages/ClubVision.dart';
-import 'package:alradi_app/components/pages/SurveyScreen.dart';
-import 'package:alradi_app/components/pages/acadmic.dart';
-import 'package:alradi_app/components/pages/document.dart';
-import 'package:alradi_app/components/pages/goalsclub.dart';
-import 'package:alradi_app/components/pages/pageemplo.dart';
-import 'package:alradi_app/components/pages/pagevisit.dart';
-import 'package:alradi_app/components/pages/playdiff.dart';
-import 'package:alradi_app/components/pages/players_cards.dart';
-import 'package:alradi_app/components/pages/problem.dart';
-import 'package:alradi_app/components/pages/report.dart';
-import 'package:alradi_app/components/pages/store.dart';
-import 'package:alradi_app/components/pages/volunteer.dart';
-import 'package:alradi_app/screens/about.dart';
-import 'package:alradi_app/screens/news.dart';
-import 'package:flutter/material.dart';
-import 'package:alradi_app/components/pages/BoardPage.dart';
-import 'package:alradi_app/components/pages/StructurePage.dart';
-import 'package:enefty_icons/enefty_icons.dart';
+import 'dart:developer';
 
+import 'package:enefty_icons/enefty_icons.dart';
 import 'package:expandable/expandable.dart';
+import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import '../screens/about.dart';
+import '../screens/news.dart';
+import 'pages/acadmic.dart';
+import 'pages/all_players.dart';
+import 'pages/board_page.dart';
+import 'pages/club_vision.dart';
+import 'pages/pageemplo.dart';
+import 'pages/pagevisit.dart';
+import 'pages/playdiff.dart';
+import 'pages/problem.dart';
+import 'pages/shcule_sport.dart';
+import 'pages/structure_page.dart';
+import 'pages/survey_screen.dart';
+import 'pages/volunteer.dart';
+import 'pdf_screen.dart';
 
 class AppDrawer extends StatelessWidget {
   List<GlobalKey>? keys;
@@ -60,7 +61,10 @@ class AppDrawer extends StatelessWidget {
                             color: Colors.grey.withOpacity(0.5), // Shadow color
                             spreadRadius: 5, // Spread radius
                             blurRadius: 7, // Blur radius
-                            offset: Offset(0, 3), // Offset in x and y direction
+                            offset: const Offset(
+                              0,
+                              3,
+                            ), // Offset in x and y direction
                           ),
                         ],
                       ),
@@ -87,28 +91,31 @@ class AppDrawer extends StatelessWidget {
                     indent: 100, // تحديد المسافة عند البداية
                     endIndent: 1, // تحديد المسافة عند النهاية
                   ),
-                  myListTile(
-                    context,
-                    ' نبذة تاريخية',
-                    Icons.message_sharp,
-                    const About(),
+                  const MyListTile(
+                    title: 'نبذة تاريخية',
+                    icon: Icons.message_sharp,
+                    screenName: About(),
                   ),
-                  myListTile(
-                    context,
-                    'الهيكل التنظيمي',
-                    Icons.grading_outlined,
-                    const StructurePage(),
+                  const MyListTile(
+                    title: 'الهيكل التنظيمي',
+                    icon: Icons.grading_outlined,
+                    screenName: StructurePage(),
                   ),
-                  myListTile(
-                    context,
-                    ' إتصل بنا ',
-                    Icons.contact_phone_rounded,
-                    const BoardPage(),
+                  const MyListTile(
+                    title: ' إتصل بنا ',
+                    icon: Icons.contact_phone_rounded,
+                    screenName: BoardPage(),
                   ),
                 ],
                 Icons.sports_football,
               ),
-
+              const SizedBox(height: 8),
+              const MyListTile(
+                title: 'جدول المباريات',
+                icon: Icons.sports_volleyball_outlined,
+                screenName: Sportclander(), // بدلي الصفحات حقها بعدين
+              ),
+              const SizedBox(height: 8),
               myExpandedWidget(
                 context,
                 'المركز الاعلامي',
@@ -119,17 +126,15 @@ class AppDrawer extends StatelessWidget {
                     indent: 100, // تحديد المسافة عند البداية
                     endIndent: 1, // تحديد المسافة عند النهاية
                   ),
-                  myListTile(
-                    context,
-                    ' الأخبار',
-                    Icons.newspaper_outlined,
-                    const NewsPage(), // بدلي الصفحات حقها بعدين
+                  const MyListTile(
+                    title: ' الأخبار',
+                    icon: Icons.newspaper_outlined,
+                    screenName: NewsPage(), // بدلي الصفحات حقها بعدين
                   ),
-                  myListTile(
-                    context,
-                    ' ألبوم الصور',
-                    Icons.photo_library_outlined,
-                    const Cards(), // بدلي الصفحات حقها بعدين
+                  const MyListTile(
+                    title: ' ألبوم الصور',
+                    icon: Icons.photo_library_outlined,
+                    screenName: Cards(), // بدلي الصفحات حقها بعدين
                   ),
                 ],
                 Icons.sports_football,
@@ -138,10 +143,16 @@ class AppDrawer extends StatelessWidget {
                 context,
                 'الرياضات',
                 [
-                  myListTile(context, 'كرة القدم',
-                      Icons.sports_basketball_sharp, const playersCard()),
-                  myListTile(context, 'الأكاديمية', Icons.blur_linear_sharp,
-                      const acdimc()),
+                  const MyListTile(
+                    title: 'كرة القدم',
+                    icon: Icons.sports_basketball_sharp,
+                    screenName: AllPlayers(),
+                  ),
+                  const MyListTile(
+                    title: 'الأكاديمية',
+                    icon: Icons.blur_linear_sharp,
+                    screenName: Acdimc(),
+                  ),
                 ],
                 Icons.sports_handball_rounded,
               ),
@@ -149,29 +160,37 @@ class AppDrawer extends StatelessWidget {
                 context,
                 'الإستراتيجية',
                 [
-                  myListTile(
-                    context,
-                    'رؤية النادي ورسالته',
-                    Icons.message_sharp,
-                    const ClubVision(), // بدلي الصفحات حقها بعدين
+                  const MyListTile(
+                    title: 'رؤية النادي ورسالته',
+                    icon: Icons.message_sharp,
+                    screenName: ClubVision(), // بدلي الصفحات حقها بعدين
                   ),
-                  myListTile(
-                    context,
-                    'الاهداف الإستراتيجية',
-                    Icons.grading_outlined,
-                    const goalsclub(), // بدلي الصفحات حقها بعدين
+                  const MyListTile(
+                    title: 'الاهداف الإستراتيجية',
+                    icon: Icons.grading_outlined,
+                    screenName: PdfScreen(
+                      pdf:
+                          "https://alraedclub.sa/site/img/%D8%A7%D8%B3%D8%AA%D8%B1%D8%A7%D8%AA%D9%8A%D8%AC%D9%8A%D8%A9%20%D9%86%D8%A7%D8%AF%D9%8A%20%D8%A7%D9%84%D8%B1%D8%A7%D8%A6%D8%AF.pdf",
+                      title: 'الاهداف الإستراتيجية',
+                    ), // بدلي الصفحات حقها بعدين
                   ),
-                  myListTile(
-                    context,
-                    'وثيقة الخطة الإستراتيجية(2019-2023)',
-                    Icons.document_scanner_sharp,
-                    const document(), // بدلي الصفحات حقها بعدين
+                  const MyListTile(
+                    title: "إستراتيجية النادي الرسمية 2023-2028",
+                    icon: Icons.document_scanner_sharp,
+                    screenName: PdfScreen(
+                      pdf:
+                          "https://alraedclub.sa/site/img/%D8%A7%D8%B3%D8%AA%D8%B1%D8%A7%D8%AA%D9%8A%D8%AC%D9%8A%D8%A9%20%D9%86%D8%A7%D8%AF%D9%8A%20%D8%A7%D9%84%D8%B1%D8%A7%D8%A6%D8%AF.pdf",
+                      title: "إستراتيجية النادي الرسمية 2023-2028",
+                    ),
                   ),
-                  myListTile(
-                    context,
-                    'التقرير السنوي(2021-2022)',
-                    Icons.restore_page_outlined,
-                    const report(), // بدلي الصفحات حقها بعدين
+                  const MyListTile(
+                    title: 'التقرير السنوي(2022-2023)',
+                    icon: Icons.restore_page_outlined,
+                    screenName: PdfScreen(
+                      pdf:
+                          "https://alraedclub.sa/site/%D8%A7%D9%84%D8%AA%D9%82%D8%B1%D9%8A%D8%B1%20%D8%A7%D9%84%D8%B3%D9%86%D9%88%D9%8A%20%D9%84%D9%86%D8%A7%D8%AF%D9%8A%20%D8%A7%D9%84%D8%B1%D8%A7%D8%A6%D8%AF%20%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%20%D9%84%D9%84%D9%85%D9%88%D8%B3%D9%85%2022_23.pdf",
+                      title: 'التقرير السنوي(2022-2023)',
+                    ), // بدلي الصفحات حقها بعدين
                   ),
                 ],
                 EneftyIcons.diagram_outline,
@@ -180,54 +199,41 @@ class AppDrawer extends StatelessWidget {
                 context,
                 'الاستطلاعات',
                 [
-                  myListTile(
-                    context,
-                    'استطلاع الجمهور',
-                    Icons.poll,
-                    SurveyScreen(), // بدلي الصفحات حقها بعدين
+                  MyListTile(
+                    title: 'استطلاع الجمهور',
+                    icon: Icons.poll,
+                    screenName: SurveyScreen(), // بدلي الصفحات حقها بعدين
                   ),
-                  myListTile(
-                    context,
-                    'استطلاع الموظفين',
-                    Icons.group,
-                    pageemplo(), // بدلي الصفحات حقها بعدين
+                  MyListTile(
+                    title: 'استطلاع الموظفين',
+                    icon: Icons.group,
+                    screenName: Pageemplo(), // بدلي الصفحات حقها بعدين
                   ),
-                  myListTile(
-                    context,
-                    'استطلاع الزوار',
-                    Icons.person_search_sharp,
-                    pagevisit(), // بدلي الصفحات حقها بعدين
+                  MyListTile(
+                    title: 'استطلاع الزوار',
+                    icon: Icons.person_search_sharp,
+                    screenName: Pagevisit(), // بدلي الصفحات حقها بعدين
                   ),
                 ],
                 EneftyIcons.note_2_outline,
               ),
-              myListTile(
-                context,
-                'المتجر',
-                Icons.store,
-                const store(), // بدلي الصفحات حقها بعدين
+              const MyListTile(
+                title: 'المتجر',
+                icon: Icons.store,
               ),
-              myListTile(
-                context,
-                'البلاغات والشكاوي',
-                Icons.report_problem_outlined,
-                const broblem(), // بدلي الصفحات حقها بعدين
+              const MyListTile(
+                title: 'البلاغات والشكاوي',
+                icon: Icons.report_problem_outlined,
+                screenName: Problem(), // بدلي الصفحات حقها بعدين
               ),
               myExpandedWidget(
                 context,
                 'المزيد',
                 [
-                  myListTile(
-                    context,
-                    'المتطوعون',
-                    Icons.person_pin,
-                    volunteer(), // بدلي الصفحات حقها بعدين
-                  ),
-                  myListTile(
-                    context,
-                    'الراغبون بالتسجيل',
-                    Icons.group,
-                    pageemplo(), // بدلي الصفحات حقها بعدين
+                  const MyListTile(
+                    title: 'المتطوعون',
+                    icon: Icons.person_pin,
+                    screenName: Volunteer(), // بدلي الصفحات حقها بعدين
                   ),
                 ],
                 EneftyIcons.note_2_outline,
@@ -259,36 +265,57 @@ navigateToKey(BuildContext context, List<GlobalKey>? keys, int index) {
   }
 }
 
-Widget myListTile(
-    BuildContext context, String title, IconData icon, Widget screenName) {
-  return GestureDetector(
-    onTap: () => Navigator.of(context).pushAndRemoveUntil(
-      MaterialPageRoute(
-        builder: (context) => screenName,
-      ),
-      (route) => false,
-    ),
-    child: Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Text(
-            title,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
+class MyListTile extends StatelessWidget {
+  const MyListTile(
+      {super.key, required this.title, required this.icon, this.screenName});
+  final String title;
+  final Widget? screenName;
+  final IconData icon;
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () async {
+        String url = "https://store.alraedclub.sa/";
+        if (screenName != null) {
+          Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(
+              builder: (context) => screenName!,
             ),
-          ),
-          const SizedBox(width: 4),
-          Icon(
-            icon,
-            color: Colors.black54,
-            size: 20,
-          ),
-        ],
+            (route) => false,
+          );
+        } else {
+          try {
+            await launchUrl(
+              Uri.parse(url),
+              mode: LaunchMode.externalApplication,
+            );
+          } catch (e) {
+            log(e.toString());
+          }
+        }
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Text(
+              title,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(width: 4),
+            Icon(
+              icon,
+              color: Colors.black54,
+              size: 20,
+            ),
+          ],
+        ),
       ),
-    ),
-  );
+    );
+  }
 }
 
 Widget myExpandedWidget(

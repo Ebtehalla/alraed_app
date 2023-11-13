@@ -1,6 +1,6 @@
-import 'package:alradi_app/screens/about.dart';
-import 'package:alradi_app/screens/homepage.dart';
-import 'package:alradi_app/screens/news.dart';
+import 'screens/about.dart';
+import 'screens/homepage.dart';
+import 'screens/news.dart';
 import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
@@ -15,7 +15,7 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   var pages = [
     const HomePage(
-      title: 'نادي الصقر',
+      title: 'نادي الرائد',
       imagePath: '',
     ),
     const NewsPage(),
@@ -33,17 +33,17 @@ class _DashboardState extends State<Dashboard> {
           SalomonBottomBarItem(
             icon: const Icon(EneftyIcons.home_2_outline),
             title: const Text("Home"),
-            selectedColor: Color.fromARGB(255, 175, 35, 35),
+            selectedColor: const Color.fromARGB(255, 175, 35, 35),
           ),
           SalomonBottomBarItem(
             icon: const Icon(EneftyIcons.book_outline),
             title: const Text("News"),
-            selectedColor: Color.fromARGB(255, 175, 35, 35),
+            selectedColor: const Color.fromARGB(255, 175, 35, 35),
           ),
           SalomonBottomBarItem(
             icon: const Icon(EneftyIcons.undo_outline),
             title: const Text("About"),
-            selectedColor: Color.fromARGB(255, 175, 35, 35),
+            selectedColor: const Color.fromARGB(255, 175, 35, 35),
           ),
         ],
       ),

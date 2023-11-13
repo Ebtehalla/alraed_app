@@ -1,6 +1,9 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class FirebaseApi {
+
+class FirebaseApiService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   Future<void> createNews(String title, String imageUrl) async {
@@ -18,8 +21,10 @@ class FirebaseApi {
       List<DocumentSnapshot> documents = querySnapshot.docs;
       return documents;
     } catch (e) {
-      print('Error reading documents: $e');
+      log('Error reading documents: $e');
       return [];
     }
   }
+
+
 }

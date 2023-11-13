@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:alradi_app/components/drawer.dart';
+import '../drawer.dart';
 
 class StructurePage extends StatelessWidget {
   const StructurePage({Key? key}) : super(key: key);

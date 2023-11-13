@@ -1,6 +1,7 @@
-import 'package:alradi_app/dashboard.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+
+import 'dashboard.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -18,6 +19,8 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
+      title: "نادي الرئد",
+      locale: Locale("ar"),
       home: Dashboard(),
     );
   }
