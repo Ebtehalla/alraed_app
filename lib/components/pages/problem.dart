@@ -169,7 +169,7 @@ class _broblemState extends State<broblem> {
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        primary: const Color.fromARGB(255, 14, 15, 14),
+                        backgroundColor: const Color.fromARGB(255, 14, 15, 14),
                         shape: const StadiumBorder(),
                         padding: const EdgeInsets.symmetric(
                           vertical: 16,

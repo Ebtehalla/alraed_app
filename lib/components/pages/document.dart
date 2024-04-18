@@ -23,7 +23,10 @@ class _documentState extends State<document> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('وثيقة نادي الرائد'),
+        title: const Text(
+          'وثيقة نادي الرائد',
+          style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+        ),
         actions: [
           ClipOval(
             child: Image.asset('assets/logo.png'),
@@ -47,7 +50,10 @@ class _documentState extends State<document> {
             backgroundColor:
                 Color.fromARGB(255, 137, 42, 35), // تغيير لون الخلفية هنا
           ),
-          child: const Text('وثيقة الخطة الإستراتيجية لنادي الرائد'),
+          child: const Text(
+            'وثيقة الخطة الإستراتيجية لنادي الرائد',
+            style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+          ),
         ),
       ),
     );

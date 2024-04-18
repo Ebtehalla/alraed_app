@@ -104,7 +104,10 @@ class _MyNewsCardState extends State<MyNewsCard> {
                         ),
                       ));
                     },
-                    child: const Text('المزيد'),
+                    child: const Text(
+                      'المزيد',
+                      style: TextStyle(color: Color.fromARGB(255, 155, 47, 40)),
+                    ),
                   ),
                 ],
               ),

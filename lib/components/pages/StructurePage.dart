@@ -8,7 +8,10 @@ class StructurePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(''),
+        title: const Text(
+          'الهيكل التنظيمي ',
+          style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+        ),
         actions: [
           ClipOval(
             child: Image.asset('assets/logo.png'),

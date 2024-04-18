@@ -81,12 +81,12 @@ class AppDrawer extends StatelessWidget {
                 context,
                 'عن نادي الرائد ',
                 [
-                  const Divider(
-                    color: Colors.black54, // تغيير لون الخط
-                    thickness: 0.6, // تغيير سمك الخط
-                    indent: 100, // تحديد المسافة عند البداية
-                    endIndent: 1, // تحديد المسافة عند النهاية
-                  ),
+                  // const Divider(
+                  //   color: Color.fromARGB(255, 6, 1, 1), // تغيير لون الخط
+                  //   thickness: 0.6, // تغيير سمك الخط
+                  //   indent: 100, // تحديد المسافة عند البداية
+                  //   endIndent: 1, // تحديد المسافة عند النهاية
+                  // ),
                   myListTile(
                     context,
                     ' نبذة تاريخية',
@@ -108,17 +108,22 @@ class AppDrawer extends StatelessWidget {
                 ],
                 Icons.sports_football,
               ),
-
+              const Divider(
+                color: Color.fromARGB(255, 6, 1, 1), // تغيير لون الخط
+                thickness: 0.6, // تغيير سمك الخط
+                indent: 100, // تحديد المسافة عند البداية
+                endIndent: 1, // تحديد المسافة عند النهاية
+              ),
               myExpandedWidget(
                 context,
                 'المركز الاعلامي',
                 [
-                  const Divider(
-                    color: Colors.black54, // تغيير لون الخط
-                    thickness: 0.6, // تغيير سمك الخط
-                    indent: 100, // تحديد المسافة عند البداية
-                    endIndent: 1, // تحديد المسافة عند النهاية
-                  ),
+                  // const Divider(
+                  //   color: Colors.black54, // تغيير لون الخط
+                  //   thickness: 0.6, // تغيير سمك الخط
+                  //   indent: 100, // تحديد المسافة عند البداية
+                  //   endIndent: 1, // تحديد المسافة عند النهاية
+                  // ),
                   myListTile(
                     context,
                     ' الأخبار',
@@ -134,16 +139,34 @@ class AppDrawer extends StatelessWidget {
                 ],
                 Icons.sports_football,
               ),
+              const Divider(
+                color: Color.fromARGB(255, 6, 1, 1), // تغيير لون الخط
+                thickness: 0.6, // تغيير سمك الخط
+                indent: 100, // تحديد المسافة عند البداية
+                endIndent: 1, // تحديد المسافة عند النهاية
+              ),
               myExpandedWidget(
                 context,
                 'الرياضات',
                 [
+                  // const Divider(
+                  //   color: Color.fromARGB(255, 6, 1, 1), // تغيير لون الخط
+                  //   thickness: 0.6, // تغيير سمك الخط
+                  //   indent: 100, // تحديد المسافة عند البداية
+                  //   endIndent: 1, // تحديد المسافة عند النهاية
+                  // ),
                   myListTile(context, 'كرة القدم',
                       Icons.sports_basketball_sharp, const playersCard()),
                   myListTile(context, 'الأكاديمية', Icons.blur_linear_sharp,
                       const acdimc()),
                 ],
                 Icons.sports_handball_rounded,
+              ),
+              const Divider(
+                color: Color.fromARGB(255, 6, 1, 1), // تغيير لون الخط
+                thickness: 0.6, // تغيير سمك الخط
+                indent: 100, // تحديد المسافة عند البداية
+                endIndent: 1, // تحديد المسافة عند النهاية
               ),
               myExpandedWidget(
                 context,
@@ -176,6 +199,12 @@ class AppDrawer extends StatelessWidget {
                 ],
                 EneftyIcons.diagram_outline,
               ),
+              const Divider(
+                color: Color.fromARGB(255, 6, 1, 1), // تغيير لون الخط
+                thickness: 0.6, // تغيير سمك الخط
+                indent: 100, // تحديد المسافة عند البداية
+                endIndent: 1, // تحديد المسافة عند النهاية
+              ),
               myExpandedWidget(
                 context,
                 'الاستطلاعات',
@@ -201,17 +230,35 @@ class AppDrawer extends StatelessWidget {
                 ],
                 EneftyIcons.note_2_outline,
               ),
+              const Divider(
+                color: Color.fromARGB(255, 6, 1, 1), // تغيير لون الخط
+                thickness: 0.6, // تغيير سمك الخط
+                indent: 100, // تحديد المسافة عند البداية
+                endIndent: 1, // تحديد المسافة عند النهاية
+              ),
               myListTile(
                 context,
                 'المتجر',
                 Icons.store,
                 const store(), // بدلي الصفحات حقها بعدين
               ),
+              const Divider(
+                color: Color.fromARGB(255, 6, 1, 1), // تغيير لون الخط
+                thickness: 0.6, // تغيير سمك الخط
+                indent: 100, // تحديد المسافة عند البداية
+                endIndent: 1, // تحديد المسافة عند النهاية
+              ),
               myListTile(
                 context,
                 'البلاغات والشكاوي',
                 Icons.report_problem_outlined,
                 const broblem(), // بدلي الصفحات حقها بعدين
+              ),
+              const Divider(
+                color: Color.fromARGB(255, 6, 1, 1), // تغيير لون الخط
+                thickness: 0.6, // تغيير سمك الخط
+                indent: 100, // تحديد المسافة عند البداية
+                endIndent: 1, // تحديد المسافة عند النهاية
               ),
               myExpandedWidget(
                 context,

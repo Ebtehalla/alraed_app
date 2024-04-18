@@ -63,6 +63,7 @@ class _NewsPageState extends State<NewsPage> {
                         var item = news[index].data() as Map<dynamic, dynamic>;
                         Map<String, dynamic> map = Map.from(item);
                         DateTime dateTime = map['time'].toDate();
+
                         String year = dateTime.year.toString();
                         String month = dateTime.month.toString();
                         String day = dateTime.day.toString();

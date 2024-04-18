@@ -8,9 +8,24 @@ class About extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(232, 186, 47, 47),
-        title: const Text('نبذة تاريخية عن الرائد'),
+        title: const Text(
+          ' النبذة التاريخية  ',
+          style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+        ),
+        actions: [
+          ClipOval(
+            child: Image.asset('assets/logo.png'),
+          ),
+        ],
+        backgroundColor: const Color.fromARGB(255, 124, 40, 40),
         centerTitle: true,
+        toolbarHeight: 60,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomRight: Radius.circular(30),
+            bottomLeft: Radius.circular(30),
+          ),
+        ),
       ),
       drawer: AppDrawer(),
       body: SingleChildScrollView(

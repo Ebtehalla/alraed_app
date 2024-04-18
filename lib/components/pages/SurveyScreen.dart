@@ -310,8 +310,8 @@ class SurveyScreen extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    primary: const Color.fromARGB(
-                        255, 55, 122, 58), // Set the desired color here
+                    backgroundColor: const Color.fromARGB(
+                        255, 159, 88, 88), // Set the desired color here
                     shape: const StadiumBorder(),
                     padding: const EdgeInsets.symmetric(
                         vertical: 16,

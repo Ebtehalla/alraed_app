@@ -1,11 +1,14 @@
 import 'package:alradi_app/components/coming_match.dart';
 import 'package:alradi_app/components/drawer.dart';
 import 'package:alradi_app/components/footer.dart';
+import 'package:alradi_app/components/news_card.dart';
+import 'package:alradi_app/screens/news.dart';
 import 'package:flutter/material.dart';
 import 'package:alradi_app/components/pages/players_cards.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key, required String title, required String imagePath});
+  const HomePage({Key? key, required String title, required String imagePath})
+      : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -37,23 +40,28 @@ class _HomePageState extends State<HomePage> {
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const UpComingMatch(),
-                  Column(
-                    children: [
-                      Text(
-                        'قائمة اللاعبين',
-                        key: playersKey,
-                      ),
-                      const playersCard(),
-                    ],
-                  ),
-                  const Footer(),
-                ],
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  children: [
+                    // const MyNewsCard(
+                    //   img: '',
+                    //   title: '',
+                    //   category: '',
+                    //   content: '',
+                    //   time: '',
+                    // ),
+                    const UpComingMatch(),
+                    Text(
+                      'قائمة اللاعبين',
+                      key: playersKey,
+                    ),
+                    const playersCard(),
+                  ],
+                ),
+                const Footer(),
+              ],
             ),
           ),
         ),

@@ -1,4 +1,5 @@
 import 'package:alradi_app/components/drawer.dart';
+import 'package:alradi_app/components/footer.dart';
 import 'package:alradi_app/services/function.dart';
 import 'package:flutter/material.dart';
 
@@ -104,7 +105,7 @@ class _BoardPageState extends State<BoardPage> {
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        primary: const Color.fromARGB(255, 14, 15, 14),
+                        backgroundColor: const Color.fromARGB(255, 14, 15, 14),
                         shape: const StadiumBorder(),
                         padding: const EdgeInsets.symmetric(
                           vertical: 16,
@@ -114,7 +115,11 @@ class _BoardPageState extends State<BoardPage> {
                           fontSize: 18,
                         ),
                       ),
-                      child: const Text('إرسال'),
+                      child: const Text(
+                        'إرسال',
+                        style: TextStyle(
+                            color: Color.fromARGB(255, 240, 240, 240)),
+                      ),
                     ),
                     const SizedBox(height: 16),
                     const SizedBox(height: 16),
@@ -125,61 +130,62 @@ class _BoardPageState extends State<BoardPage> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        IconButton(
-                          icon: Image.asset('assets/new_twitter.png'),
-                          onPressed: () =>
-                              openSocialMedia('https://twitter.com/alraedclub'),
-                        ),
-                        IconButton(
-                          icon: Image.asset(
-                              'assets/snapchat.png'), // استبدل بأيقونة سناب شات الخاصة بك
-                          onPressed: () => openSocialMedia(
-                              'https://www.snapchat.com/add/alraed_club'),
-                        ),
-                        IconButton(
-                          icon: Image.asset(
-                              'assets/instagram.png'), // استبدل بأيقونة واتساب الخاصة بك
-                          onPressed: () => openSocialMedia(
-                              'https://www.instagram.com/alraedclub/'),
-                        ),
-                        IconButton(
-                          icon: Image.asset(
-                              'assets/facebook.png'), // استبدل بأيقونة واتساب الخاصة بك
-                          onPressed: () => openSocialMedia(
-                              'https://www.facebook.com/alraedclubsa/'),
-                        ),
-                      ],
-                    ),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.center,
+                    //   children: [
+                    //     IconButton(
+                    //       icon: Image.asset('assets/new_twitter.png'),
+                    //       onPressed: () =>
+                    //           openSocialMedia('https://twitter.com/alraedclub'),
+                    //     ),
+                    //     IconButton(
+                    //       icon: Image.asset(
+                    //           'assets/snapchat.png'), // استبدل بأيقونة سناب شات الخاصة بك
+                    //       onPressed: () => openSocialMedia(
+                    //           'https://www.snapchat.com/add/alraed_club'),
+                    //     ),
+                    //     IconButton(
+                    //       icon: Image.asset(
+                    //           'assets/instagram.png'), // استبدل بأيقونة واتساب الخاصة بك
+                    //       onPressed: () => openSocialMedia(
+                    //           'https://www.instagram.com/alraedclub/'),
+                    //     ),
+                    //     IconButton(
+                    //       icon: Image.asset(
+                    //           'assets/facebook.png'), // استبدل بأيقونة واتساب الخاصة بك
+                    //       onPressed: () => openSocialMedia(
+                    //           'https://www.facebook.com/alraedclubsa/'),
+                    //     ),
+                    //   ],
+                    // ),
+                    const Footer(),
                   ],
                 ),
                 const SizedBox(
                   height: 30,
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          bottom:
-                              5.0), // Change the value to adjust the padding size
-                      child: Center(
-                        child: Container(
-                          alignment: Alignment.centerRight,
-                          color: Colors.black,
-                          child: const Text(
-                            'جميع الحقوق محفوظة لنادي الرائد 2023 صمم بواسطة بانوراما القصيم',
-                            style: TextStyle(
-                              color: Colors.green,
-                              fontSize: 18.0,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                  // children: [
+                  //   Padding(
+                  //     padding: const EdgeInsets.only(
+                  //         bottom:
+                  //             5.0), // Change the value to adjust the padding size
+                  //     child: Center(
+                  //       child: Container(
+                  //         alignment: Alignment.centerRight,
+                  //         color: Colors.black,
+                  //         // child: const Text(
+                  //         //   'جميع الحقوق محفوظة لنادي الرائد 2023 صمم بواسطة بانوراما القصيم',
+                  //         //   style: TextStyle(
+                  //         //     color: Colors.green,
+                  //         //     fontSize: 18.0,
+                  //         //   ),
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ],
                 ),
               ],
             ),

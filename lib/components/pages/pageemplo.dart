@@ -377,8 +377,8 @@ class pageemplo extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    primary: const Color.fromARGB(
-                        255, 55, 122, 58), // Set the desired color here
+                    backgroundColor: Color.fromARGB(
+                        255, 150, 71, 71), // Set the desired color here
                     shape: const StadiumBorder(),
                     padding: const EdgeInsets.symmetric(
                         vertical: 16,

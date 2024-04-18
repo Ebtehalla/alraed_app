@@ -258,7 +258,8 @@ class pagevisit extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.black54, // Set the desired color here
+                    backgroundColor:
+                        Colors.black54, // Set the desired color here
                     shape: const StadiumBorder(),
                     padding: const EdgeInsets.symmetric(
                         vertical: 16,

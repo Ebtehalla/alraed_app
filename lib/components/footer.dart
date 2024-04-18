@@ -13,12 +13,11 @@ class _FooterState extends State<Footer> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // شعار النادي
-        // SizedBox(
-        //   width: MediaQuery.of(context).size.shortestSide * 0.2,
-        //   height: MediaQuery.of(context).size.shortestSide * 0.2,
-        //   child: Image.asset('assets/logo.png'),
-        // ),
+        SizedBox(
+          width: MediaQuery.of(context).size.shortestSide * 0.10,
+          height: MediaQuery.of(context).size.shortestSide * 0.10,
+          child: Image.asset('assets/logo.png'),
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -40,7 +39,7 @@ class _FooterState extends State<Footer> {
             // العنوان
             Column(
               children: [
-                Text(
+                const Text(
                   'العنوان',
                   style: TextStyle(
                     fontSize: 16,
@@ -48,9 +47,9 @@ class _FooterState extends State<Footer> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(bottom: 12),
+                  padding: const EdgeInsets.only(bottom: 12),
                   width: MediaQuery.of(context).size.width * 0.3,
-                  child: Text(
+                  child: const Text(
                     'المملكة العربية السعودية - القصيم - بريدة',
                     softWrap: true,
                     textAlign: TextAlign.center,
@@ -66,32 +65,48 @@ class _FooterState extends State<Footer> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            IconButton(
-              icon: Image.asset('assets/new_twitter.png'),
-              onPressed: () =>
-                  openSocialMedia('https://twitter.com/alraedclub'),
+            SizedBox(
+              width: 55, // تحديد عرض الأيقونة هنا
+              height: 55,
+              child: IconButton(
+                icon: Image.asset('assets/new_twitter.png'),
+                onPressed: () =>
+                    openSocialMedia('https://twitter.com/alraedclub'),
+              ),
             ),
-            IconButton(
-              icon: Image.asset(
-                  'assets/snapchat.png'), // استبدل بأيقونة سناب شات الخاصة بك
-              onPressed: () =>
-                  openSocialMedia('https://www.snapchat.com/add/alraed_club'),
+            SizedBox(
+              width: 55, // تحديد عرض الأيقونة هنا
+              height: 55,
+              child: IconButton(
+                icon: Image.asset(
+                    'assets/snapchat.png'), // استبدل بأيقونة سناب شات الخاصة بك
+                onPressed: () =>
+                    openSocialMedia('https://www.snapchat.com/add/alraed_club'),
+              ),
             ),
-            IconButton(
-              icon: Image.asset(
-                  'assets/instagram.png'), // استبدل بأيقونة واتساب الخاصة بك
-              onPressed: () =>
-                  openSocialMedia('https://www.instagram.com/alraedclub/'),
+            SizedBox(
+              width: 55, // تحديد عرض الأيقونة هنا
+              height: 55,
+              child: IconButton(
+                icon: Image.asset(
+                    'assets/instagram.png'), // استبدل بأيقونة واتساب الخاصة بك
+                onPressed: () =>
+                    openSocialMedia('https://www.instagram.com/alraedclub/'),
+              ),
             ),
-            IconButton(
-              icon: Image.asset(
-                  'assets/facebook.png'), // استبدل بأيقونة واتساب الخاصة بك
-              onPressed: () =>
-                  openSocialMedia('https://www.facebook.com/alraedclubsa/'),
+            SizedBox(
+              width: 55, // تحديد عرض الأيقونة هنا
+              height: 55,
+              child: IconButton(
+                icon: Image.asset(
+                    'assets/facebook.png'), // استبدل بأيقونة واتساب الخاصة بك
+                onPressed: () =>
+                    openSocialMedia('https://www.facebook.com/alraedclubsa/'),
+              ),
             ),
           ],
         ),
-        Text(
+        const Text(
           'جميع الحقوق محفوظة لنادي الرائد 2023 صمم بواسطة بانورما القصيم',
           style: TextStyle(
             fontSize: 12,
