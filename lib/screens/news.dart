@@ -1,6 +1,7 @@
 import 'package:alradi_app/components/drawer.dart';
 import 'package:alradi_app/components/news_card.dart';
 import 'package:alradi_app/services/firebaseApi.dart';
+import 'package:alradi_app/services/function.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -52,8 +53,9 @@ class _NewsPageState extends State<NewsPage> {
 
               var news = snapshot.data as List<DocumentSnapshot>;
               temp = news;
-              print(temp is List<DocumentSnapshot>);
-              // الحين اذا الغبي هذا ترو ليش مايطبع لي loaded الي هنا
+
+              sortList(temp);
+
               return Column(
                 children: [
                   Expanded(
@@ -68,10 +70,10 @@ class _NewsPageState extends State<NewsPage> {
                         String month = dateTime.month.toString();
                         String day = dateTime.day.toString();
                         String _dateTime = '$year-$month-$day';
-                        print(map['img']);
+                        // print(map['img']);
                         return MyNewsCard(
                           title: map['title'],
-                          category: map['category'],
+                          category: map['category'].toString(),
                           img: map['img'],
                           content: map['content'],
                           time: _dateTime,
