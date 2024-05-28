@@ -10,6 +10,11 @@ void openSocialMedia(String url) async {
 }
 
 void sortList(List<DocumentSnapshot> myList) {
+  myList.removeWhere((element) {
+    Map<String, dynamic> temp = element.data() as Map<String, dynamic>;
+
+    return temp.containsKey("time") == false;
+  });
   myList.sort((a, b) {
     DateTime firstMap = a["time"].toDate();
 

@@ -72,10 +72,10 @@ class _NewsPageState extends State<NewsPage> {
                         String _dateTime = '$year-$month-$day';
                         // print(map['img']);
                         return MyNewsCard(
-                          title: map['title'],
-                          category: map['category'].toString(),
-                          img: map['img'],
-                          content: map['content'],
+                          title: map['title'] ?? "",
+                          category: map['category'] ?? "",
+                          img: map['img'] ?? "",
+                          content: map['content'] ?? "",
                           time: _dateTime,
                         );
                       },
